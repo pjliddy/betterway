@@ -5,7 +5,9 @@
 
 // font-family: 'Petit Formal Script', cursive;
 
-/* Global Styles */
+/*
+ *  Global styles
+ */
 
 html,
 body {
@@ -33,13 +35,17 @@ body {
   }
 }
 
+/*
+ *  Navbar styles
+ */
+
 .navbar-custom {
   background: $brand-primary;
-  padding: 1em 1em 1.25em;
+  padding: 1em 0;
   border: 0;
 
   .navbar-header {
-    height: auto;
+    // height: auto;
   }
 
   .navbar-brand {
@@ -49,8 +55,25 @@ body {
 
     img {
       display: inline;
-      height: 3em;
+      height: 2.5em;
+      vertical-align: middle;
       // margin-right: 1em;
+    }
+
+    .logo-type {
+      display: inline-block;
+      vertical-align: middle;
+
+    }
+
+    .logo-primary {
+      font-size: 1.5em;
+      display: inline-block;
+    }
+
+    .logo-secondary {
+      font-size: 1em;
+      display: inline-block;
     }
   }
 
@@ -59,15 +82,9 @@ body {
   }
 }
 
-.logo-primary {
-  font-size: 1.5em;
-  display: inline-block;
-}
-
-.logo-secondary {
-  font-size: 1em;
-  display: inline-block;
-}
+/*
+ *  Listing Grid styles
+ */
 
 .listing-grid-item {
   border: 1px solid $gray-lighter;
@@ -100,9 +117,6 @@ body {
   }
 }
 
-/***********************************
-Course
-************************************/
 [class*=" imghvr-"] figcaption,
 [class^="imghvr-"] figcaption {
   background-color: $brand-primary;

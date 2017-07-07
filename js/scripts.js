@@ -1,6 +1,6 @@
 $(function(){
   var data = getListings();
-  getTemplate('#test','js/templates/listing.hbs', data);
+  getTemplate('#listings','js/templates/listing.hbs', data);
 })
 
 function getTemplate(target, path, data) {
@@ -56,7 +56,35 @@ function getListings() {
       mls: '8176878',
       type: 'Single Family',
       price: '196,500'
+    },
+    {
+      address: '319 Hunters, #167',
+      city: 'Dallas',
+      state: 'TX',
+      zip: '30157',
+      mls: '8176878',
+      type: 'Single Family',
+      price: '279,600'
+    },
+    {
+      address: '1313 Mockingbird Way',
+      city: 'Galveston',
+      state: 'TX',
+      zip: '30122',
+      mls: '8188728',
+      type: 'Single Family',
+      price: '479,000'
+    },
+    {
+      address: '12 Green Oak Drive',
+      city: 'Austin',
+      state: 'TX',
+      zip: '30133',
+      mls: '8185608',
+      type: 'Single Family',
+      price: '212,500'
     }
+
   ];
 
   return data;
