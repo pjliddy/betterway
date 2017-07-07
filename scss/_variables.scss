@@ -1,10 +1,17 @@
 // Variables
 
-$brand-primary:     #141f3d;  // blue
-$theme-primary:     #003720;  // greeen
-
 // Gray and Brand Colors for use across theme
-// $white:           white;
+$white:           white;
+$theme-primary:     #141f3d;  // blue
+$brand-primary:     #003720;  // greeen
+
+// $theme-primary:     #003720;  // greeen
+
+$font-family-base:  "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+$image-hero: url('../img/hero3.jpg');
+
+
 // $theme-base:      #002743;
 // $theme-primary:   #fed136;
 // $theme-danger:    #e74c3c;

@@ -1,0 +1,71 @@
+@import 'variables';
+@import 'mixins';
+@import '../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss';
+@import url('https://fonts.googleapis.com/css?family=Petit+Formal+Script');
+
+// font-family: 'Petit Formal Script', cursive;
+
+/* Global Styles */
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: $font-family-base;
+}
+
+.jumbotron {
+  @include background-cover;
+  background-attachment: scroll;
+  background-image: $image-hero;
+  background-position: center center;
+  background-repeat: no-repeat;
+  color: $white;
+  height: calc(100vh - 50px);
+  margin-top: 50px;
+  text-align: center;
+
+  h1 {
+    margin: 1.5em;
+  }
+}
+
+.navbar-custom {
+  background: $brand-primary;
+  padding: 1em 1em 1.25em;
+  border: 0;
+
+  .navbar-header {
+    height: auto;
+  }
+
+  .navbar-brand {
+    color: $white;
+    float: left;
+    font-family: 'Petit Formal Script', cursive;
+    padding: 0;
+
+    img {
+      // display: inline;
+      height: 3em;
+      // margin-right: 1em;
+    }
+  }
+
+  .navbar-nav > li > a {
+    color: $white;
+  }
+}
+
+.logo-primary {
+  font-size: 2em;
+  float: left;
+}
+
+.logo-secondary {
+  font-size: 1em;
+  float: left;
+}
