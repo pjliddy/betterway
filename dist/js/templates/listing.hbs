@@ -1,0 +1,37 @@
+<div class="row">
+  <h2>Listings</h2>
+  {{#each listings as |listing|}}
+    {{!-- <div class="col-md-4">
+      <div class="listing-grid-item">
+        <img src="img/{{listing.mls}}.JPG">
+        <p class="listing-caption">
+          <span class="listing-price">${{listing.price}}</span>
+          <span class="listing-location">{{listing.city}}, {{listing.state}} {{listing.zip}}</span>
+          <span class="clearfix"></span>
+        </p>
+      </div>
+    </div> --}}
+
+    <div class="col-md-4 col-sm-6">
+      <div class="listing-grid-item">
+        <figure class="imghvr-fold-up">
+          <img src="img/{{listing.mls}}.JPG" class="img-responsive">
+          <figcaption>
+            <p class="listing-type">{{listing.type}}</p>
+            <p class="listing-price">${{listing.price}}</p>
+            <p class="listing-address">{{listing.address}}<br />
+               {{listing.city}}, {{listing.state}} {{listing.zip}}</p>
+            <p class="listing-mls">MLS #: {{listing.mls}}</p>
+            <button class="btn btn-default" type="button">See More</button>
+          </figcaption>
+          <p class="listing-caption">
+            <span class="caption-price">${{listing.price}}</span>
+            <span class="caption-location">{{listing.city}}, {{listing.state}} {{listing.zip}}</span>
+            <span class="clearfix"></span>
+          </p>
+        </figure>
+
+      </div>
+    </div>
+  {{/each}}
+</div>

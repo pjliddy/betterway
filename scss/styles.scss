@@ -44,12 +44,11 @@ body {
 
   .navbar-brand {
     color: $white;
-    float: left;
     font-family: 'Petit Formal Script', cursive;
     padding: 0;
 
     img {
-      // display: inline;
+      display: inline;
       height: 3em;
       // margin-right: 1em;
     }
@@ -61,11 +60,56 @@ body {
 }
 
 .logo-primary {
-  font-size: 2em;
-  float: left;
+  font-size: 1.5em;
+  display: inline-block;
 }
 
 .logo-secondary {
   font-size: 1em;
-  float: left;
+  display: inline-block;
+}
+
+.listing-grid-item {
+  border: 1px solid $gray-lighter;
+
+  figure, img {
+    width: 100%;
+  }
+
+  .listing-caption {
+    padding: 10px 10px 0px;
+  }
+
+  .caption-price {
+    float: left;
+    font-weight: 700;
+    display: inline-block;
+  }
+
+  .caption-location {
+    float: right;
+    display: inline-block;
+  }
+
+  .listing-price {
+    font-weight: 700;
+  }
+
+  .listing-type {
+    float: right;
+  }
+}
+
+/***********************************
+Course
+************************************/
+[class*=" imghvr-"] figcaption,
+[class^="imghvr-"] figcaption {
+  background-color: $brand-primary;
+}
+
+[class*=" imghvr-"],
+[class^="imghvr-"] {
+  background-color: $white;
+  color: $brand-primary;
 }
