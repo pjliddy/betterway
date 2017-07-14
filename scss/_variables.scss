@@ -10,9 +10,11 @@ $theme-highlight: #ffe800;
 $font-family-base:  "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $font-size-base: 16px;
 $line-height-base: 1.5;
+$text-shadow-color: rgba(0, 0, 0, .85);
+$text-shadow-sm: 1.25px 1.25px 2px $text-shadow-color;
 
 // image Variables
-$image-hero: url('../img/hero3.jpg');
+$image-hero: url('../img/hero-grass.jpg');
 
 // Navbar Variables
 $navbar-height: 50px;
