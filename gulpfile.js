@@ -16,9 +16,9 @@ var awspublish = require('gulp-awspublish');
 var minifyHTML = require('gulp-minify-html');
 
 // parse AWS credentials
-aws = JSON.parse(fs.readFileSync('./aws.json'));
+// aws = JSON.parse(fs.readFileSync('./aws.json'));
 // create instance of awspublish
-var publisher = awspublish.create(aws);
+// var publisher = awspublish.create(aws);
 
 
 // defining single task with name "deploy"

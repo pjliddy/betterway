@@ -2,8 +2,9 @@
 @import 'mixins';
 @import '../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss';
 @import url('https://fonts.googleapis.com/css?family=Petit+Formal+Script');
-
-// font-family: 'Petit Formal Script', cursive;
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i');
 
 /*
  *  Global styles
@@ -19,6 +20,15 @@ body {
   font-family: $font-family-base;
 }
 
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  font-weight: 700;
+}
+
 .jumbotron {
   @include background-cover;
   background-attachment: scroll;
@@ -26,8 +36,8 @@ body {
   background-position: center center;
   background-repeat: no-repeat;
   color: $white;
-  height: calc(100vh - 50px);
-  margin-top: 50px;
+  height: calc(100vh - $navbar-height);
+  margin-top: $navbar-height;
   text-align: center;
 
   h1 {
@@ -41,8 +51,8 @@ body {
 
 .navbar-custom {
   background: $brand-primary;
-  padding: 1em 0;
   border: 0;
+  padding: 12px 4px 4px;
 
   .navbar-header {
     // height: auto;
@@ -55,30 +65,99 @@ body {
 
     img {
       display: inline;
-      height: 2.5em;
+      height: 2em;
       vertical-align: middle;
-      // margin-right: 1em;
+      margin-right: .25em;
     }
 
     .logo-type {
       display: inline-block;
       vertical-align: middle;
-
+      line-height: .9;
     }
 
     .logo-primary {
-      font-size: 1.5em;
       display: inline-block;
+      font-size: 1em;
     }
 
     .logo-secondary {
-      font-size: 1em;
       display: inline-block;
+      font-size: .625em;
+    }
+  }
+
+  .navbar-toggle,
+  .navbar-toggle:focus {
+    background-color: $brand-primary;
+    border: 0;
+    color: $white;
+    margin: 0 .5em 0 0;
+
+    &:hover,
+    &:active, &.active {
+      background-color: $brand-primary;
+      color: $theme-highlight;
     }
   }
 
   .navbar-nav > li > a {
     color: $white;
+
+    &:hover {
+      background-color: $brand-primary;
+      color: $theme-highlight;
+    }
+  }
+
+  .navbar-nav > .active > a,
+  .navbar-nav > .active > a:hover,
+  .navbar-nav > .active > a:focus {
+    background-color: $white;
+    color: $brand-primary;
+  }
+}
+
+@media(min-width:768px) {
+  .navbar-custom {
+    padding: 1em .5em .5em;
+
+    .navbar-brand {
+      .logo-type {
+        display: inline-block;
+        line-height: .9;
+        vertical-align: middle;
+      }
+
+      .logo-primary {
+        display: inline;
+        font-size: 1em;
+      }
+
+      .logo-secondary {
+        display: inline;
+        font-size: 1em;
+      }
+    }
+
+    .navbar-nav > li > a {
+      color: $white;
+      padding: .5em .75em;
+      margin-left: .5em;
+
+      // &:hover {
+      //   background-color: $brand-primary;
+      //   color: $theme-highlight;
+      // }
+    }
+
+    .navbar-nav > .active > a,
+    .navbar-nav > .active > a:hover,
+    .navbar-nav > .active > a:focus {
+      background-color: $white;
+      color: $brand-primary;
+    }
+
   }
 }
 
