@@ -1,4 +1,6 @@
 // Variables
+@import '../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables';
+
 
 // Gray and Brand Colors for use across theme
 $white:           #fff;
@@ -10,6 +12,7 @@ $theme-highlight: #ffe800;
 $font-family-base:  "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $font-size-base: 16px;
 $line-height-base: 1.5;
+$text-color: $gray;
 $text-shadow-color: rgba(0, 0, 0, .85);
 $text-shadow-sm: 1.25px 1.25px 2px $text-shadow-color;
 
