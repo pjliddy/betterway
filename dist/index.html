@@ -16,7 +16,6 @@
 
   <!-- Custom Fonts -->
   <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700" rel="stylesheet" type="text/css">
 
   <!-- Image Hover -->
   <link rel="stylesheet" type="text/css" href="css/imagehover.min.css">
@@ -32,7 +31,7 @@
       <![endif]-->
 </head>
 
-<body>
+<body id="page-top">
   <!-- Navigation -->
   <nav id="mainNav" class="navbar navbar-inverse navbar-custom navbar-fixed-top">
     <div class="container">
@@ -41,10 +40,10 @@
           <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
         </button>
         <a class="navbar-brand page-scroll" href="#page-top">
-          <img src="img/logo.png" alt="logo">
+          <img class="" src="img/logo-sm.png" alt="Betterway Atlanta Realty Logo">
           <div class="logo-type">
-            <span class="logo-primary">Betterway</span><br/>
-            <span class="logo-secondary">Realty Group Atlanta</span>
+            <span class="logo-primary">Betterway</span><br class="visible-xs"/>
+            <span class="logo-secondary">Atlanta Realty</span>
           </div>
         </a>
       </div>
@@ -55,7 +54,7 @@
             <a href="#page-top"></a>
           </li>
           <li>
-            <a class="page-scroll" href="#about">About</a>
+            <a class="page-scroll" href="#service">Our Service</a>
           </li>
           <li>
             <a class="page-scroll" href="#listings">Listings</a>
@@ -70,20 +69,34 @@
   <!-- Main jumbotron for a primary marketing message or call to action -->
   <div class="jumbotron">
     <div class="container">
-      <h1>Why pay a realtor?</h1>
-      <p>Most buyers find their new homes through MLS listings.</p>
-      <p>With Betterway Realty Group Atlanta, you can list your home for just $500.</p>
-      <form class="form-inline">
-        <div class="form-group">
-          <label class="sr-only" for="email">Email</label>
-          <input type="email" class="form-control" id="email" placeholder="your email address...">
+      <h1>Why Pay a Realtor?</h1>
+      <h2>Use Betterway Atlanta Realty list your own home for just $500.</h2>
+      <div class="row">
+        <div class="col-sm-6 col-lg-5 col-lg-offset-1">
+          <form class="form-inline">
+            <fieldset>
+              <legend>Let's get started</legend>
+              <div class="form-group">
+                <label class="sr-only" for="email">Email</label>
+                <div class="input-group">
+                  <input type="email" class="form-control" id="email" placeholder="your email address...">
+                  <div class="input-group-btn">
+                    <button type="submit" class="btn btn-primary">Send</button>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </form>
         </div>
-        <button type="submit" class="btn btn-primary">Send</button>
-      </form>
+        <div class="col-sm-6 col-lg-5">
+          <p class="phone-number-intro">Or give us a call:</p>
+          <p class="phone-number">888.888.8888</p>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="container">
+  <div class="container" id="service">
     <div class="row">
       <div class="col-md-4 service">
         <h2>Heading</h2>

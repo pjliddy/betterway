@@ -12,14 +12,13 @@ var pkg = require('./package.json');
 var fs = require("fs");
 var gzip = require('gulp-gzip');
 var minifyCss = require('gulp-minify-css');
-var awspublish = require('gulp-awspublish');
+// var awspublish = require('gulp-awspublish');
 var minifyHTML = require('gulp-minify-html');
 
 // parse AWS credentials
 // aws = JSON.parse(fs.readFileSync('./aws.json'));
 // create instance of awspublish
 // var publisher = awspublish.create(aws);
-
 
 // defining single task with name "deploy"
 gulp.task('deploy', function() {
@@ -57,9 +56,8 @@ gulp.task('deploy', function() {
 
 // Set the banner content
 var banner = ['/*!\n',
-  ' * Start Bootstrap - <%= pkg.title %> v<%= pkg.version %> (<%= pkg.homepage %>)\n',
-  ' * Copyright 2013-' + (new Date()).getFullYear(), ' <%= pkg.author %>\n',
-  ' * Licensed under <%= pkg.license.type %> (<%= pkg.license.url %>)\n',
+  ' * Betterway Atlanta Realty - <%= pkg.title %> v<%= pkg.version %> (<%= pkg.homepage %>)\n',
+  ' * Copyright 2017-' + (new Date()).getFullYear(), ' <%= pkg.author %>\n',
   ' */\n',
   ''
 ].join('');
