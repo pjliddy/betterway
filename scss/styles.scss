@@ -203,8 +203,7 @@ h6, .h6 {
   }
 
   form {
-    margin: 0 auto;
-    width: 75%;
+    margin: 0 10px;
   }
 
   legend {
@@ -213,6 +212,25 @@ h6, .h6 {
     font-size: 1.25em;
     letter-spacing: .75px;
     margin-bottom: .5em;
+  }
+
+  .input-group {
+    width: 100%;
+  }
+  .input-group-addon {
+    background-color: $brand-primary;
+    border: $brand-primary;
+    color: $white;
+  }
+
+  .form-control {
+    height: 39px;
+    padding: 12px;
+  }
+
+  .input-group-btn .btn-primary{
+    @include button-variant($white, $brand-primary, $brand-primary);
+    // border: 0;
   }
 
   .phone-number-intro {
@@ -224,7 +242,8 @@ h6, .h6 {
   .phone-number {
     color: $theme-highlight;
     font-size: 2.25em;
-    font-weight: 500;
+    font-weight: 700;
+    letter-spacing: 1.5px;
   }
 }
 
@@ -248,12 +267,12 @@ h6, .h6 {
 
       .form-group,
       .input-group {
-        margin: 0;
-        width: 100%;
+        // margin: 0;
+        // width: 100%;
       }
 
       .input-group-btn {
-        left: -10px;
+        // left: -10px;
       }
     }
 
@@ -272,10 +291,7 @@ h6, .h6 {
     }
 
     .phone-number {
-      color: $theme-highlight;
       font-size: 2.5em;
-      font-weight: 500;
-      letter-spacing: 1.5px;
       line-height: 1.25;
     }
   }
