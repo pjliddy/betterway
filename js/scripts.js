@@ -1,6 +1,7 @@
 $(function(){
   var data = getListings();
-  getTemplate('#listings','js/templates/listing.hbs', data);
+  getTemplate('#listing-active','js/templates/listing-active.hbs', data);
+  getTemplate('#listing-sold','js/templates/listing-sold.hbs', data);
 
   // jQuery for page scrolling feature - requires jQuery Easing plugin
 $('a.page-scroll').bind('click', function(event) {
@@ -24,11 +25,10 @@ $('.navbar-collapse ul li a').click(function(){
 
 // Offset for Main Navigation
 $('#mainNav').affix({
-    offset: {
-        top: 100
-    }
-})
-})
+  offset: {
+    top: 100
+  };
+});
 
 function getTemplate(target, path, data) {
   var source;
@@ -58,13 +58,34 @@ function renderTemplate(target, source, data) {
 function getListings() {
   data = [
     {
-      address: '319 Hunters, #167',
-      city: 'Dallas',
-      state: 'TX',
-      zip: '30157',
-      mls: '8188728',
-      type: 'Single Family',
-      price: '249,900'
+      mls: "8203214",
+      address: "1334 Garrick Way",
+      city: "Marietta",
+      county: "Cobb",
+      state: "GA",
+      zip: "30068",
+      type: "Single Family",
+      price: "725,000",
+      status: "active",
+      num_bedrooms: "5",
+      num_bathrooms: "4",
+      year_built: "1990",
+      cooling: "Ceiling Fan, Central",
+      cooling_source: "Electric",
+      heating_type: "Forced Air",
+      heating_source: "Gas",
+      description: "Completely updated MAGNIFICENT East Cobb 5BR/4BA Exec. home in sought after Camden Place. Kitchen includes faux-painted cabinets, granite cntps, and SS appliances. Huge Master Bath has been completely renovated with granite cntps and rainforest, open-air double shower. Large FIN Terrace level is an entertainer's dream with media room, family room, full bath and Bedroom. Large fenced in BYD and one of only a handful of homes with a view of the lake. Active Swim/Tennis community along with award winning schools! This home is move-in ready!",
+      images: [
+        "8203214-1.jpg",
+        "8203214-1.jpg",
+        "8203214-2.jpg",
+        "8203214-3.jpg",
+        "8203214-4.jpg",
+        "8203214-5.jpg",
+        "8203214-6.jpg",
+        "8203214-7.jpg",
+        "8203214-8.jpg",
+        "8203214-9.jpg"]
     },
     {
       address: '5171 Ivy Green Way',
@@ -73,6 +94,7 @@ function getListings() {
       zip: '30126',
       mls: '8185608',
       type: 'Single Family',
+      status: 'Available',
       price: '879,000'
     },
     {
@@ -81,6 +103,7 @@ function getListings() {
       state: 'TX',
       zip: '30157',
       mls: '8176878',
+      status: 'Available',
       type: 'Single Family',
       price: '196,500'
     },
@@ -90,6 +113,7 @@ function getListings() {
       state: 'TX',
       zip: '30157',
       mls: '8176878',
+      status: 'Available',
       type: 'Single Family',
       price: '279,600'
     },
@@ -99,6 +123,7 @@ function getListings() {
       state: 'TX',
       zip: '30122',
       mls: '8188728',
+      status: 'Available',
       type: 'Single Family',
       price: '479,000'
     },
@@ -108,6 +133,7 @@ function getListings() {
       state: 'TX',
       zip: '30133',
       mls: '8185608',
+      status: 'Available',
       type: 'Single Family',
       price: '212,500'
     }
