@@ -1,47 +1,41 @@
-$(function(){
+$(function() {
   var data = getListings();
   getTemplate('#listing-active','js/templates/listing-active.hbs', data);
   getTemplate('#listing-sold','js/templates/listing-sold.hbs', data);
 
   // jQuery for page scrolling feature - requires jQuery Easing plugin
-$('a.page-scroll').bind('click', function(event) {
-    var $anchor = $(this);
-    $('html, body').stop().animate({
-        scrollTop: ($($anchor.attr('href')).offset().top - 50)
-    }, 800, 'easeInOutExpo');
-    event.preventDefault();
-});
+  $('a.page-scroll').bind('click', function(event) {
+      var $anchor = $(this);
+      $('html, body').stop().animate({
+          scrollTop: ($($anchor.attr('href')).offset().top - 50)
+      }, 800, 'easeInOutExpo');
+      event.preventDefault();
+  });
 
-// Highlight the top nav as scrolling occurs
-$('body').scrollspy({
-    target: '.navbar-fixed-top',
-    offset: 51
-});
+  // Highlight the top nav as scrolling occurs
+  $('body').scrollspy({
+      target: '.navbar-fixed-top',
+      offset: 51
+  });
 
-// Closes the Responsive Menu on Menu Item Click
-$('.navbar-collapse ul li a').click(function(){
-        $('.navbar-toggle:visible').click();
-});
+  // Closes the Responsive Menu on Menu Item Click
+  $('.navbar-collapse ul li a').click(function(){
+          $('.navbar-toggle:visible').click();
+  });
 
-// Offset for Main Navigation
-$('#mainNav').affix({
-  offset: {
-    top: 100
-  };
-});
+  // Offset for Main Navigation
+  $('#mainNav').affix({
+    offset: {
+      top: 100
+    }
+  });
+})
 
-function getTemplate(target, path, data) {
-  var source;
-  var template;
-
+function getTemplate (target, path, data) {
   $.ajax({
     url: path, //ex. js/templates/mytemplate.handlebars
       cache: true,
       success: function(res) {
-        // source    = res;
-        // template  = Handlebars.compile(source);
-        // $('#target').html(template);
-        // console.log(template());
         renderTemplate(target, res, data);
     }
   });
@@ -50,12 +44,23 @@ function getTemplate(target, path, data) {
 function renderTemplate(target, source, data) {
   console.log(data);
 
-  const template  = Handlebars.compile(source);
-  const content = template({listings:data});
+  var template  = Handlebars.compile(source);
+  var content = template({listings:data});
   $(target).html(content);
 }
 
 function getListings() {
+  var path = "https://spreadsheets.google.com/feeds/list/1hzXzXdK1fqgaZC_eQdxLRFkUOHlW7puy9w9CPrNl5uE/od6/public/values?alt=json";
+
+  $.ajax({
+    url: path, //ex. js/templates/mytemplate.handlebars
+      cache: true,
+      success: function(res) {
+        console.log(res);
+    }
+  });
+
+
   data = [
     {
       mls: "8203214",
@@ -137,7 +142,6 @@ function getListings() {
       type: 'Single Family',
       price: '212,500'
     }
-
   ];
 
   return data;
