@@ -5846,16 +5846,16 @@ body {
   width: 100%; }
 
 h1, .h1 {
-  font-weight: 700;
-  color: #222222; }
+  color: #222222;
+  font-weight: 700; }
 
 h2, .h2,
 h3, .h3,
 h4, .h4,
 h5, .h5,
 h6, .h6 {
-  font-weight: 600;
-  color: #222222; }
+  color: #222222;
+  font-weight: 600; }
 
 /*
  *  Navbar styles
@@ -6053,13 +6053,12 @@ h6, .h6 {
  */
 #service {
   margin-top: 30px; }
-
-.service-item {
-  margin-top: 30px;
-  text-align: center; }
-  .service-item p {
-    font-size: 1.0625em;
-    text-align: justify; }
+  #service .service-item {
+    margin-top: 30px;
+    text-align: center; }
+    #service .service-item p {
+      font-size: 1.0625em;
+      text-align: justify; }
 
 .btn-theme {
   color: #003720;
@@ -6104,17 +6103,18 @@ h6, .h6 {
  */
 .listing-grid-item {
   border: 1px solid #eeeeee; }
-  .listing-grid-item figure, .listing-grid-item img {
+  .listing-grid-item figure,
+  .listing-grid-item img {
     width: 100%; }
   .listing-grid-item .listing-caption {
-    padding: 10px 10px 0px; }
+    padding: 10px 10px 0; }
   .listing-grid-item .caption-price {
+    display: inline-block;
     float: left;
-    font-weight: 700;
-    display: inline-block; }
+    font-weight: 700; }
   .listing-grid-item .caption-location {
-    float: right;
-    display: inline-block; }
+    display: inline-block;
+    float: right; }
   .listing-grid-item .listing-price {
     font-weight: 700; }
   .listing-grid-item .listing-type {

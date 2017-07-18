@@ -4,19 +4,19 @@
     <div class="col-md-4 col-sm-6">
       <div class="listing-grid-item">
         <figure class="imghvr-flip-horiz">
-          <img src="img/{{listing.mls}}.jpg" class="img-responsive">
+          <img src="img/{{listing.gsx$mls.$t}}.jpg" class="img-responsive">
           <p class="listing-caption">
-            <span class="caption-price">${{listing.price}}</span>
-            <span class="caption-location">{{listing.city}}, {{listing.state}} {{listing.zip}}</span>
+            <span class="caption-price">${{listing.gsx$price.$t}}</span>
+            <span class="caption-location">{{listing.gsx$city.$t}}, {{listing.gsx$state.$t}} {{listing.gsx$zip.$t}}</span>
             <span class="clearfix"></span>
           </p>
 
           <figcaption>
-            <p class="listing-type">{{listing.type}}</p>
-            <p class="listing-price">${{listing.price}}</p>
-            <p class="listing-address">{{listing.address}}<br />
-               {{listing.city}}, {{listing.state}} {{listing.zip}}</p>
-            <p class="listing-mls">MLS #: {{listing.mls}}</p>
+            <p class="listing-type">{{listing.gsx$type.$t}}</p>
+            <p class="listing-price">${{listing.gsx$price.$t}}</p>
+            <p class="listing-address">{{listing.gsx$address.$t}}<br />
+               {{listing.gsx$city.$t}}, {{listing.gsx$state.$t}} {{listing.gsx$zip.$t}}</p>
+            <p class="listing-mls">MLS #: {{listing.gsx$mls.$t}}</p>
             <button class="btn btn-theme" type="button">See More</button>
           </figcaption>
 
@@ -26,3 +26,26 @@
     </div>
   {{/each}}
 </div>
+
+{{!--
+  gsx$mls
+  gsx$address
+  gsx$city
+  gsx$county
+  gsx$state
+  gsx$zip
+  gsx$type
+  gsx$price
+  gsx$status
+  gsx$bedrooms
+  gsx$bathrooms
+  gsx$half_baths
+  gsx$year_built
+  gsx$heating
+  gsx$cooling
+  gsx$elementary_school
+  gsx$middle_school
+  gsx$high_school
+  gsx$description
+  gsx$images
+--}}

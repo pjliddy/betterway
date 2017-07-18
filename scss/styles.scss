@@ -1,6 +1,6 @@
 @import 'variables';
 @import 'mixins';
-@import '../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap';
+@import '../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
 @import url('https://fonts.googleapis.com/css?family=Petit+Formal+Script');
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i');
 // @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i');
@@ -23,15 +23,15 @@
 }
 
 .highlight-bg {
-  background-color: $theme-highlight
+  background-color: $theme-highlight;
 }
 
 .highlight-border {
-  border-color: $theme-highlight
+  border-color: $theme-highlight;
 }
 
 .highlight-color {
-  color: $theme-highlight
+  color: $theme-highlight;
 }
 
 /*
@@ -45,8 +45,8 @@ body {
 }
 
 h1, .h1 {
-  font-weight: 700;
   color: $gray-darker;
+  font-weight: 700;
 }
 
 
@@ -55,8 +55,8 @@ h3, .h3,
 h4, .h4,
 h5, .h5,
 h6, .h6 {
-  font-weight: 600;
   color: $gray-darker;
+  font-weight: 600;
 }
 
 /*
@@ -217,6 +217,7 @@ h6, .h6 {
   .input-group {
     width: 100%;
   }
+
   .input-group-addon {
     background-color: $brand-primary;
     border: $brand-primary;
@@ -230,7 +231,6 @@ h6, .h6 {
 
   .input-group-btn .btn-primary{
     @include button-variant($white, $brand-primary, $brand-primary);
-    // border: 0;
   }
 
   .phone-number-intro {
@@ -270,10 +270,6 @@ h6, .h6 {
         // margin: 0;
         // width: 100%;
       }
-
-      .input-group-btn {
-        // left: -10px;
-      }
     }
 
     legend {
@@ -303,17 +299,18 @@ h6, .h6 {
 
 #service {
    margin-top: 30px;
- }
 
- .service-item {
-   margin-top: 30px;
-   text-align: center;
 
-   p {
-     font-size: 1.0625em;
-     text-align: justify;
-   }
- }
+  .service-item {
+    margin-top: 30px;
+    text-align: center;
+
+    p {
+      font-size: 1.0625em;
+      text-align: justify;
+    }
+  }
+}
 
 .btn-theme {
   @include button-variant($brand-primary, $theme-highlight, $theme-highlight);
@@ -327,23 +324,24 @@ h6, .h6 {
 .listing-grid-item {
   border: 1px solid $gray-lighter;
 
-  figure, img {
+  figure,
+  img {
     width: 100%;
   }
 
   .listing-caption {
-    padding: 10px 10px 0px;
+    padding: 10px 10px 0;
   }
 
   .caption-price {
+    display: inline-block;
     float: left;
     font-weight: 700;
-    display: inline-block;
   }
 
   .caption-location {
-    float: right;
     display: inline-block;
+    float: right;
   }
 
   .listing-price {
