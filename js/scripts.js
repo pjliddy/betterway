@@ -40,8 +40,6 @@ function getTemplate (target, path, data) {
 }
 
 function renderTemplate(target, source, data) {
-  console.log(data);
-
   var template  = Handlebars.compile(source);
   var content = template({listings:data});
   $(target).html(content);

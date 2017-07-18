@@ -4,7 +4,9 @@
     <div class="col-md-4 col-sm-6">
       <div class="listing-grid-item">
         <figure class="imghvr-flip-horiz">
-          <img src="img/mls/{{listing.gsx$mls.$t}}-1.jpg" class="img-responsive">
+          <div class="img-wrapper">
+            <img src="img/mls/{{listing.gsx$mls.$t}}-1.jpg" class="img-responsive">
+          </div>
           <p class="listing-caption">
             <span class="caption-price">${{listing.gsx$price.$t}}</span>
             <span class="caption-location">{{listing.gsx$city.$t}}, {{listing.gsx$state.$t}} {{listing.gsx$zip.$t}}</span>
@@ -19,9 +21,7 @@
             <p class="listing-mls">MLS #: {{listing.gsx$mls.$t}}</p>
             <button class="btn btn-theme" type="button">See More</button>
           </figcaption>
-
         </figure>
-
       </div>
     </div>
   {{/each}}

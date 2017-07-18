@@ -6103,7 +6103,10 @@ h6, .h6 {
  */
 .listing-grid-item {
   border: 1px solid #eeeeee; }
-  .listing-grid-item figure,
+  .listing-grid-item .img-wrapper {
+    height: 238px;
+    max-height: 238px;
+    overflow: hidden; }
   .listing-grid-item img {
     width: 100%; }
   .listing-grid-item .listing-caption {

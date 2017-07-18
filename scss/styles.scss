@@ -3,8 +3,6 @@
 @import '../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
 @import url('https://fonts.googleapis.com/css?family=Petit+Formal+Script');
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i');
-// @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i');
-// @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i');
 
 /*
  *  Color Styles
@@ -324,7 +322,16 @@ h6, .h6 {
 .listing-grid-item {
   border: 1px solid $gray-lighter;
 
-  figure,
+  figure {
+    // overflow: hidden;
+  }
+
+  .img-wrapper {
+    height: 238px;
+    max-height: 238px;
+    overflow: hidden;
+  }
+
   img {
     width: 100%;
   }
@@ -362,4 +369,8 @@ h6, .h6 {
 [class^="imghvr-"] {
   background-color: $white;
   color: $brand-primary;
+}
+
+@media(min-width:768px) {
+
 }
