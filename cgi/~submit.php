@@ -13,7 +13,7 @@
 if(empty($_POST['email'])     ||
    !filter_var($_POST['email'],FILTER_VALIDATE_EMAIL))
    {
-     echo "No arguments Provided!";
+     echo "Form field(s) are empty";
      return false;
    }
 

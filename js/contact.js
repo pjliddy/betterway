@@ -1,7 +1,6 @@
 // Contact Form Scripts
 
 $(function() {
-
     $("#contact-form input").jqBootstrapValidation({
         preventSubmit: true,
         submitError: function($form, event, errors) {
@@ -13,7 +12,7 @@ $(function() {
             var email = $("input#email").val();
 
             $.ajax({
-                url: "./cgi-bin/contact.php",
+                url: "./cgi/submit.php",
                 type: "POST",
                 data: {
                     email: email,
