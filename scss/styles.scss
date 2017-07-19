@@ -223,12 +223,27 @@ h6, .h6 {
   }
 
   .form-control {
-    height: 39px;
+    height: 38px;
     padding: 12px;
   }
 
   .input-group-btn .btn-primary{
     @include button-variant($white, $brand-primary, $brand-primary);
+
+    &:hover,
+    &:focus,
+    &.focus {
+      background-color: $theme-highlight;
+      border-color: $theme-highlight;
+      color: $brand-primary;
+    }
+    
+    &:active,
+    &.active {
+      background-color: $theme-highlight;
+      color: $brand-primary;
+      border-color: $theme-highlight;
+    }
   }
 
   .phone-number-intro {
@@ -338,17 +353,29 @@ h6, .h6 {
 
   .listing-caption {
     padding: 10px 10px 0;
+
+    p {
+      line-height: 1.4;
+      margin-bottom: 0;
+    }
+  }
+
+  .listing-caption-left {
+    float: left;
+  }
+
+  .listing-caption-right {
+    float: right;
+    text-align: right;
   }
 
   .caption-price {
-    display: inline-block;
-    float: left;
     font-weight: 700;
   }
 
   .caption-location {
-    display: inline-block;
-    float: right;
+    // display: inline-block;
+    // float: right;
   }
 
   .listing-price {
@@ -356,7 +383,7 @@ h6, .h6 {
   }
 
   .listing-type {
-    float: right;
+    // float: right;
   }
 }
 

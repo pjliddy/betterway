@@ -5974,7 +5974,7 @@ h6, .h6 {
     border: #003720;
     color: #fff; }
   .jumbotron .form-control {
-    height: 39px;
+    height: 38px;
     padding: 12px; }
   .jumbotron .input-group-btn .btn-primary {
     color: #fff;
@@ -6012,6 +6012,14 @@ h6, .h6 {
     .jumbotron .input-group-btn .btn-primary .badge {
       color: #003720;
       background-color: #fff; }
+    .jumbotron .input-group-btn .btn-primary:hover, .jumbotron .input-group-btn .btn-primary:focus, .jumbotron .input-group-btn .btn-primary.focus {
+      background-color: #ffe800;
+      border-color: #ffe800;
+      color: #003720; }
+    .jumbotron .input-group-btn .btn-primary:active, .jumbotron .input-group-btn .btn-primary.active {
+      background-color: #ffe800;
+      color: #003720;
+      border-color: #ffe800; }
   .jumbotron .phone-number-intro {
     font-size: 1.25em;
     letter-spacing: .75px;
@@ -6111,17 +6119,18 @@ h6, .h6 {
     width: 100%; }
   .listing-grid-item .listing-caption {
     padding: 10px 10px 0; }
+    .listing-grid-item .listing-caption p {
+      line-height: 1.4;
+      margin-bottom: 0; }
+  .listing-grid-item .listing-caption-left {
+    float: left; }
+  .listing-grid-item .listing-caption-right {
+    float: right;
+    text-align: right; }
   .listing-grid-item .caption-price {
-    display: inline-block;
-    float: left;
     font-weight: 700; }
-  .listing-grid-item .caption-location {
-    display: inline-block;
-    float: right; }
   .listing-grid-item .listing-price {
     font-weight: 700; }
-  .listing-grid-item .listing-type {
-    float: right; }
 
 [class*=" imghvr-"] figcaption,
 [class^="imghvr-"] figcaption {

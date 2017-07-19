@@ -54,7 +54,7 @@ function getListings() {
       cache: true,
       success: function(res) {
         data = res.feed.entry;
-        getTemplate('#listing-active','js/templates/listing-active.hbs', data);
+        getTemplate('#listings','js/templates/listing-active.hbs', data);
     }
   });
 }

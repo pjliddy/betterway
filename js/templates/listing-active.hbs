@@ -7,11 +7,17 @@
           <div class="img-wrapper">
             <img src="img/mls/{{listing.gsx$mls.$t}}-1.jpg" class="img-responsive">
           </div>
-          <p class="listing-caption">
-            <span class="caption-price">${{listing.gsx$price.$t}}</span>
-            <span class="caption-location">{{listing.gsx$city.$t}}, {{listing.gsx$state.$t}} {{listing.gsx$zip.$t}}</span>
-            <span class="clearfix"></span>
-          </p>
+          <div class="listing-caption">
+            <div class="listing-caption-left">
+              <p class="caption-price">${{listing.gsx$price.$t}}</p>
+              <p class="caption-type">{{listing.gsx$type.$t}}</p>
+            </div>
+            <div class="listing-caption-right">
+              <p class="caption-location">{{listing.gsx$city.$t}}, {{listing.gsx$state.$t}}</p>
+              <p class="caption-zip">{{listing.gsx$zip.$t}}</p>
+            </div>
+            <div class="clearfix"></div>
+          </div>
 
           <figcaption>
             <p class="listing-type">{{listing.gsx$type.$t}}</p>
