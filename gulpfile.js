@@ -29,7 +29,7 @@ gulp.task('deploy', function() {
   gulp.src('./js/**').pipe(gulp.dest('./dist/js'));
   gulp.src('./vendor/**').pipe(gulp.dest('./dist/vendor'));
   gulp.src('./*.html').pipe(gulp.dest('./dist'));
-
+  gulp.src('./cgi/*.php').pipe(gulp.dest('./dist/cgi'));
   //minify css
   // gulp.src('./dist/css/*.css')
   //   .pipe(minifyCss({compatibility: 'ie8'}))

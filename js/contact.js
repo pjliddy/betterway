@@ -5,6 +5,7 @@ $(function() {
         preventSubmit: true,
         submitError: function($form, event, errors) {
             // additional error messages or events
+            console.log("submit error");
         },
         submitSuccess: function($form, event) {
             event.preventDefault(); // prevent default submit behaviour
@@ -28,9 +29,9 @@ $(function() {
                     //     .append("<strong>Your message has been sent. </strong>");
                     // $('#success > .alert-success')
                     //     .append('</div>');
-                    //
+
                     // //clear all fields
-                    // $('#contactForm').trigger("reset");
+                    $('#contact-form').trigger("reset");
                 },
                 error: function() {
                   console.log("mail failure");
@@ -40,8 +41,9 @@ $(function() {
                     //     .append("</button>");
                     // $('#success > .alert-danger').append("<strong>Sorry " + firstName + ", it seems that my mail server is not responding. Please try again later!");
                     // $('#success > .alert-danger').append('</div>');
-                    // //clear all fields
-                    // $('#contactForm').trigger("reset");
+
+                    //clear all fields
+                    $('#contact-form').trigger("reset");
                 },
             });
         },
