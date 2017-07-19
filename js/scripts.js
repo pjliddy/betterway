@@ -27,9 +27,13 @@ $(function() {
       top: 100
     }
   });
+
+  $('.listings').on('click', '.see-more', (e) => {
+    showDetails($(e.target).data('id'));
+  });
 });
 
-function getTemplate (target, path, data) {
+function getListingTemplate (target, path, data) {
   $.ajax({
     url: path, //ex. js/templates/mytemplate.handlebars
       cache: true,
@@ -39,9 +43,15 @@ function getTemplate (target, path, data) {
   });
 }
 
+function appendTemplate(target, source, data) {
+  var template  = Handlebars.compile(source);
+  var content = template({data:data});
+  $(target).append(content);
+}
+
 function renderTemplate(target, source, data) {
   var template  = Handlebars.compile(source);
-  var content = template({listings:data});
+  var content = template({data:data});
   $(target).html(content);
 }
 
@@ -55,6 +65,32 @@ function getListings() {
       success: function(res) {
         data = res.feed.entry;
         getTemplate('#listings','js/templates/listing-active.hbs', data);
+    }
+  });
+}
+
+function showDetails(mls) {
+  console.log('showDetails:', mls);
+  getModalTemplate('body','js/templates/detail-modal.hbs', mls);
+}
+
+function getTemplate (target, path, data) {
+  $.ajax({
+    url: path, //ex. js/templates/mytemplate.handlebars
+      cache: true,
+      success: function(res) {
+        renderTemplate(target, res, data);
+    }
+  });
+}
+
+function getModalTemplate (target, path, data) {
+  $.ajax({
+    url: path, //ex. js/templates/mytemplate.handlebars
+      cache: true,
+      success: function(res) {
+        appendTemplate(target, res, data);
+        $('#detail-modal').modal('show');
     }
   });
 }
