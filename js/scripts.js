@@ -61,6 +61,7 @@ function showModal(content) {
   }
   // display modal
   $('.modal').modal('show')
+
 }
 //
 // AJAX calls
@@ -90,7 +91,7 @@ function getTemplate (path) {
 
 // get data from listingData array from mls number
 
-function getDetailData(mls) {
+function getDetailData (mls) {
   // return individual data object from listingData with mls number
   const result = listingData.data.find(
     function (e) {
@@ -102,7 +103,7 @@ function getDetailData(mls) {
 
 // render and display listing detail in a full screen modal
 
-function showDetails(mls) {
+function showDetails (mls) {
   // getModalTemplate('body','js/templates/detail-modal.hbs', mls);
   getTemplate('js/templates/modal-detail.hbs')
     .then((template) => {
@@ -111,6 +112,30 @@ function showDetails(mls) {
       showModal(content)
     })
     .fail((err) => console.log('listing template is not available'))
+}
+
+function setUpGallery() {
+  // $('.flexslider').flexslider({
+  //   animation: "slide"
+  // })
+
+  $('#carousel').flexslider({
+    animation: "slide",
+    controlNav: false,
+    animationLoop: false,
+    slideshow: false,
+    itemWidth: 210,
+    itemMargin: 5,
+    asNavFor: '#slider'
+  })
+
+  $('#slider').flexslider({
+    animation: "slide",
+    controlNav: false,
+    animationLoop: false,
+    slideshow: false,
+    sync: "#carousel"
+  })
 }
 
 //
@@ -147,6 +172,10 @@ function handleEvents () {
 
   $('.listings').on('click', '.see-more', (e) => {
     showDetails($(e.target).data('mls'))
+  })
+
+  $('body').on('shown.bs.modal', '#detail-modal', () => {
+    setUpGallery()
   })
 }
 

@@ -9,9 +9,28 @@
       </div>
 
       <div class="modal-body">
-        <div class="img-gallery">
-          <img src="img/mls/{{data.gsx$mls.$t}}/{{data.images.[0]}}" class="img-responsive img-main">
+        <div id="slider" class="flexslider">
+          <ul class="slides">
+            {{#each data.images as |slide|}}
+            <li>
+              <img src="img/mls/{{../data.gsx$mls.$t}}/{{slide}}" />
+            </li>
+            {{/each}}
+          </ul>
         </div>
+        <div id="carousel" class="flexslider">
+          <ul class="slides">
+            {{#each data.images as |slide|}}
+              <li>
+                <img src="img/mls/{{../data.gsx$mls.$t}}/{{slide}}" />
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+
+        {{!-- <div class="img-gallery">
+          <img src="img/mls/{{data.gsx$mls.$t}}/{{data.images.[0]}}" class="img-responsive img-main">
+        </div> --}}
 
         <p class="detail-description">{{data.gsx$description.$t}}</p>
 
