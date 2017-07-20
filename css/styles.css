@@ -5850,13 +5850,17 @@ h1, .h1 {
   color: #222222;
   font-weight: 700; }
 
-h2, .h2,
+h2, .h2 {
+  font-size: 3em;
+  color: #222222;
+  font-weight: 500; }
+
 h3, .h3,
 h4, .h4,
 h5, .h5,
 h6, .h6 {
   color: #222222;
-  font-weight: 600; }
+  font-weight: 500; }
 
 /*
  *  Navbar styles
@@ -6057,6 +6061,12 @@ h6, .h6 {
     font-size: 2.5em;
     line-height: 1.25; } }
 
+section {
+  margin-top: 1.25em; }
+  section h2 {
+    color: #003720;
+    text-align: center; }
+
 /*
  *  Services Styles
  */
@@ -6142,11 +6152,18 @@ h6, .h6 {
   background-color: #fff;
   color: #003720; }
 
+.detail-modal .img-gallery {
+  margin-bottom: 1em; }
+
 .detail-modal .img-main {
-  border: 1px solid #777777; }
+  border: 1px solid #777777;
+  width: 100%; }
 
 .detail-modal .detail-modal-sub {
   font-weight: 300; }
+
+.detail-modal .detail-description {
+  margin-bottom: 1.5em; }
 
 .detail-modal .detail-label {
   font-weight: 500; }

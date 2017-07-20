@@ -48,14 +48,18 @@ h1, .h1 {
   font-weight: 700;
 }
 
+h2, .h2 {
+  font-size: 3em;
+  color: $gray-darker;
+  font-weight: 500;
+}
 
-h2, .h2,
 h3, .h3,
 h4, .h4,
 h5, .h5,
 h6, .h6 {
   color: $gray-darker;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 /*
@@ -307,6 +311,15 @@ h6, .h6 {
   }
 }
 
+section {
+  margin-top: 1.25em;
+  h2 {
+    color: $brand-primary;
+    // margin: 1em 0 1em;
+    text-align: center;
+  }
+}
+
 /*
  *  Services Styles
  */
@@ -374,17 +387,8 @@ h6, .h6 {
     font-weight: 700;
   }
 
-  .caption-location {
-    // display: inline-block;
-    // float: right;
-  }
-
   .listing-price {
     font-weight: 700;
-  }
-
-  .listing-type {
-    // float: right;
   }
 }
 
@@ -402,12 +406,21 @@ h6, .h6 {
 // Listing Detail Styles
 
 .detail-modal {
+  .img-gallery {
+    margin-bottom: 1em;
+  }
+
   .img-main {
     border: 1px solid $gray-light;
+    width: 100%;
   }
 
   .detail-modal-sub {
     font-weight: 300;
+  }
+
+  .detail-description {
+    margin-bottom: 1.5em;
   }
 
   .detail-label {

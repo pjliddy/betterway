@@ -1,39 +1,41 @@
 <div class="modal fade detail-modal" id="detail-modal" tabindex="-1" role="dialog">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
+
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title"><span class="detail-modal-main">{{data.gsx$address.$t}}</span><br/>
         <span class="detail-modal-sub">{{data.gsx$city.$t}}, {{data.gsx$state.$t}} {{data.gsx$zip.$t}}</span></h4>
       </div>
-      <div class="modal-body">
-        <img src="img/mls/{{data.gsx$mls.$t}}-1.jpg" class="img-responsive img-main">
 
-        <p>{{data.gsx$description.$t}}</p>
+      <div class="modal-body">
+        <div class="img-gallery">
+          <img src="img/mls/{{data.gsx$mls.$t}}/{{data.images.[0]}}" class="img-responsive img-main">
+        </div>
+
+        <p class="detail-description">{{data.gsx$description.$t}}</p>
 
         <p class="pull-right"><span class="detail-label">MLS: </span>{{data.gsx$mls.$t}}</p>
         <p><span class="detail-label">Price: </span>${{data.gsx$price.$t}}</p>
+
         <p class="pull-right"><span class="detail-label">Status: </span> {{data.gsx$status.$t}}</p>
         <p><span class="detail-label">Type: </span>{{data.gsx$type.$t}}</p>
 
 
+        <p class="pull-right"><span class="detail-label">County: </span>{{data.gsx$county.$t}}</p>
+        <p><span class="detail-label">Year Built: </span>{{data.gsx$yearbuilt.$t}}</p>
 
-        {{!-- <p>Address: {{data.gsx$address.$t}}</p> --}}
-        {{!-- <p>City: {{data.gsx$city.$t}}</p> --}}
-        <p><span class="detail-label">County: </span>{{data.gsx$county.$t}}</p>
-        {{!-- <p>State: {{data.gsx$state.$t}}</p>
-        <p>Zip Code: {{data.gsx$zip.$t}}</p> --}}
         <p><span class="detail-label">Bedrooms: </span>{{data.gsx$bedrooms.$t}}</p>
         <p><span class="detail-label">Baths: </span>{{data.gsx$bathrooms.$t}}</p>
         <p><span class="detail-label">Half Baths: </span>{{data.gsx$halfbaths.$t}}</p>
-        <p><span class="detail-label">Year Built: </span>{{data.gsx$yearbuilt.$t}}</p>
+
         <p><span class="detail-label">Heating: </span>{{data.gsx$heating.$t}}</p>
         <p><span class="detail-label">Cooling: </span>{{data.gsx$cooling.$t}}</p>
         <p><span class="detail-label">Elementary School: </span>{{data.gsx$elementaryschool.$t}}</p>
         <p><span class="detail-label">Middle School: </span>{{data.gsx$middleschool.$t}}</p>
         <p><span class="detail-label">High School: </span>{{data.gsx$highschool.$t}}</p>
-        {{!-- <p>Images: {{data.gsx$images.$t}}</p> --}}
       </div>
+
       <div class="modal-footer">
         <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
       </div>

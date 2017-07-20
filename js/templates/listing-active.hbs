@@ -1,11 +1,14 @@
-<h2>Our Current Listings</h2>
+<div class="page-header">
+  <h2>Our Listings</h2>
+</div>
+
 <div class="row">
   {{#each data as |listing|}}
     <div class="col-md-4 col-sm-6">
       <div class="listing-grid-item">
         <figure class="imghvr-flip-horiz">
           <div class="img-wrapper">
-            <img src="img/mls/{{listing.gsx$mls.$t}}-1.jpg" class="img-responsive">
+            <img src="img/mls/{{listing.gsx$mls.$t}}/{{listing.images.[0]}}" class="img-responsive">
           </div>
           <div class="listing-caption">
             <div class="listing-caption-left">
@@ -14,7 +17,7 @@
             </div>
             <div class="listing-caption-right">
               <p class="caption-location">{{listing.gsx$city.$t}}, {{listing.gsx$state.$t}}</p>
-              <p class="caption-zip">{{listing.gsx$zip.$t}}</p>
+              <p class="caption-status">{{listing.gsx$status.$t}}</p>
             </div>
             <div class="clearfix"></div>
           </div>
@@ -25,33 +28,10 @@
             <p class="listing-address">{{listing.gsx$address.$t}}<br />
                {{listing.gsx$city.$t}}, {{listing.gsx$state.$t}} {{listing.gsx$zip.$t}}</p>
             <p class="listing-mls">MLS #: {{listing.gsx$mls.$t}}</p>
-            <p class="listing-status">Status: {{listing.gsx$status.$t}}</p><button class="btn btn-theme see-more" type="button" data-listing="{{listing.gsx$mls.$t}}">See More</button>
+            <p class="listing-status">Status: {{listing.gsx$status.$t}}</p><button class="btn btn-theme see-more" type="button" data-mls="{{listing.gsx$mls.$t}}">See More</button>
           </figcaption>
         </figure>
       </div>
     </div>
   {{/each}}
 </div>
-
-{{!--
-  gsx$mls
-  gsx$address
-  gsx$city
-  gsx$county
-  gsx$state
-  gsx$zip
-  gsx$type
-  gsx$price
-  gsx$status
-  gsx$bedrooms
-  gsx$bathrooms
-  gsx$half_baths
-  gsx$year_built
-  gsx$heating
-  gsx$cooling
-  gsx$elementary_school
-  gsx$middle_school
-  gsx$high_school
-  gsx$description
-  gsx$images
---}}

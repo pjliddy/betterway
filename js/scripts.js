@@ -2,7 +2,19 @@
 
 // create global listing data object
 
-let listingData = {}
+let listingData = {
+  data: [],
+  setData (feedData) {
+    console.log(feedData)
+    this.data = feedData
+    this.createImageArray()
+  },
+  createImageArray () {
+    this.data.forEach(e => {
+      e.images = e.gsx$images.$t.split(', ')
+    })
+  }
+}
 
 // set path to Google Sheet with listing data (JSON feed)
 
@@ -80,7 +92,7 @@ function getTemplate (path) {
 
 function getDetailData(mls) {
   // return individual data object from listingData with mls number
-  const result = listingData.find(
+  const result = listingData.data.find(
     function (e) {
       return e.gsx$mls.$t == mls
     }
@@ -92,7 +104,7 @@ function getDetailData(mls) {
 
 function showDetails(mls) {
   // getModalTemplate('body','js/templates/detail-modal.hbs', mls);
-  getTemplate('js/templates/detail-modal.hbs')
+  getTemplate('js/templates/modal-detail.hbs')
     .then((template) => {
       const data = getDetailData(mls)
       const content = renderTemplate(template, data)
@@ -134,7 +146,7 @@ function handleEvents () {
   })
 
   $('.listings').on('click', '.see-more', (e) => {
-    showDetails($(e.target).data('listing'))
+    showDetails($(e.target).data('mls'))
   })
 }
 
@@ -150,12 +162,12 @@ $(function() {
   getListingData(listingPath)
     .then((data) => {
       // set global listing object to JSON feed data
-      listingData = data.feed.entry
+      listingData.setData(data.feed.entry)
 
       // get template and render
       getTemplate('js/templates/listing-active.hbs')
         .then((template) => {
-          insertTemplate('#listings', template, listingData)
+          insertTemplate('#listings', template, listingData.data)
         })
         .fail((err) => console.log('listing template is not available'))
     })
