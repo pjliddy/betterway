@@ -5843,7 +5843,8 @@ button.close {
 html,
 body {
   height: 100%;
-  width: 100%; }
+  width: 100%;
+  font-weight: 300; }
 
 h1, .h1 {
   color: #222222;
@@ -6140,3 +6141,12 @@ h6, .h6 {
 [class^="imghvr-"] {
   background-color: #fff;
   color: #003720; }
+
+.detail-modal .img-main {
+  border: 1px solid #777777; }
+
+.detail-modal .detail-modal-sub {
+  font-weight: 300; }
+
+.detail-modal .detail-label {
+  font-weight: 500; }

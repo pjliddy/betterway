@@ -40,6 +40,7 @@ html,
 body {
   height: 100%;
   width: 100%;
+  font-weight: $font-weight-base;
 }
 
 h1, .h1 {
@@ -237,7 +238,7 @@ h6, .h6 {
       border-color: $theme-highlight;
       color: $brand-primary;
     }
-    
+
     &:active,
     &.active {
       background-color: $theme-highlight;
@@ -398,6 +399,23 @@ h6, .h6 {
   color: $brand-primary;
 }
 
-@media(min-width:768px) {
+// Listing Detail Styles
+
+.detail-modal {
+  .img-main {
+    border: 1px solid $gray-light;
+  }
+
+  .detail-modal-sub {
+    font-weight: 300;
+  }
+
+  .detail-label {
+    font-weight: 500;
+  }
 
 }
+
+// @media(min-width:768px) {
+//
+// }
