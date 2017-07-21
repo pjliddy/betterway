@@ -6,7 +6,8 @@
      return false;
    } else {
      $contact_email = strip_tags(htmlspecialchars($_POST['email']));
-     $to = "pjliddy@gmail.com"; // <– replace with your address here
+     $to = "dan@bwarealty.com";
+     $bcc = "pjliddy@gmail.com";
      $subject = "Contact from bwarealty.com";
      $message = "I'm interested in listing my house. Please contact me.\n\n" .
                 "Email Address: " . $contact_email;
