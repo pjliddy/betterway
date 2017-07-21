@@ -20,7 +20,8 @@ $(function() {
         },
         cache: false,
         success: function() {
-          console.log("mail success");
+          // console.log("mail success");
+          showSubmitSuccess();
           // Success message
           // $('#success').html("<div class='alert alert-success'>");
           // $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
@@ -34,7 +35,8 @@ $(function() {
           $('#contact-form').trigger("reset");
         },
         error: function() {
-          console.log("mail failure");
+          // console.log("mail failure");
+          showSubmitError();
           // Fail message
           // $('#success').html("<div class='alert alert-danger'>");
           // $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")

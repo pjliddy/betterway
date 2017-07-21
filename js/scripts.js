@@ -139,6 +139,27 @@ function setUpGallery() {
 }
 
 //
+//  Contact Submission Functions
+//
+
+function showSubmitError () {
+  getTemplate('js/templates/modal-submit-error.hbs')
+    .then((template) => {
+      const content = renderTemplate(template)
+      showModal(content)
+    })
+    .fail((err) => console.log('submit errror template is not available'))
+}
+
+function showSubmitSuccess () {
+  getTemplate('js/templates/modal-submit-success.hbs')
+    .then((template) => {
+      const content = renderTemplate(template)
+      showModal(content)
+    })
+    .fail((err) => console.log('submit success template is not available'))
+}
+//
 //  Event Handlers
 //
 
