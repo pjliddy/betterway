@@ -221,6 +221,8 @@ function handleEvents () {
     submitContact(data)
       .then(showSubmitSuccess)
       .fail(showSubmitError)
+
+    $("input#email").val('')
   })
 
   // initialize jquery gallery in detail modal
