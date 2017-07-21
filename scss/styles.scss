@@ -356,29 +356,19 @@ section {
  */
 
 .listing-grid-item {
-  border: 1px solid $gray-lighter;
-
-  figure {
-    // overflow: hidden;
-  }
-
-  .img-wrapper {
-    height: 238px;
-    max-height: 238px;
-    overflow: hidden;
-  }
+  margin-bottom: 1em;
 
   img {
     width: 100%;
   }
 
+  p {
+    line-height: 1.4;
+    margin-bottom: 0;
+  }
+
   .listing-caption {
     padding: 10px 10px 0;
-
-    p {
-      line-height: 1.4;
-      margin-bottom: 0;
-    }
   }
 
   .listing-caption-left {
@@ -390,8 +380,18 @@ section {
     text-align: right;
   }
 
+  .listing-address {
+    margin-top: 1em
+  }
+
   .caption-price {
     font-weight: 700;
+  }
+
+  button {
+    bottom: 30px;
+    position: absolute;
+    right: 30px;
   }
 
   .listing-price {
@@ -407,7 +407,9 @@ section {
 [class*=" imghvr-"],
 [class^="imghvr-"] {
   background-color: $white;
+  // box-sizing: border-box;
   color: $brand-primary;
+  // margin-bottom: -6px;
 }
 
 // Listing Detail Styles

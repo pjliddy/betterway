@@ -1,20 +1,43 @@
 'use strict'
 
+// global listing data object
+let listingData ={}
+
 // create global listing data object
 
-let listingData = {
-  data: [],
-  setData (feedData) {
-    console.log(feedData)
-    this.data = feedData
-    this.createImageArray()
-  },
-  createImageArray () {
-    this.data.forEach(e => {
-      e.images = e.gsx$images.$t.split(', ')
-    })
-  }
+const ListingData = function ( ) {
+   data: []
+ }
+
+ ListingData.prototype.createImageArray = function ( ) {
+   this.data.forEach(e => {
+     e.images = e.gsx$images.$t.split(', ')
+     e.images.map(str => {
+       return str.trim()
+     })
+   })
+ }
+
+ListingData.prototype.setData = function (feedData) {
+  console.log(feedData)
+  this.data = feedData
+  this.createImageArray()
 }
+
+
+// let listingData = {
+//   data: [],
+//   setData (feedData) {
+//     console.log(feedData)
+//     this.data = feedData
+//     this.createImageArray()
+//   },
+//   createImageArray () {
+//     this.data.forEach(e => {
+//       e.images = e.gsx$images.$t.split(', ')
+//     })
+//   }
+// }
 
 // set path to Google Sheet with listing data (JSON feed)
 
@@ -243,6 +266,8 @@ $(function() {
   getListingData(listingPath)
     .then((data) => {
       // set global listing object to JSON feed data
+      listingData = new ListingData()
+
       listingData.setData(data.feed.entry)
 
       // get template and render

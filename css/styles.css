@@ -6126,25 +6126,27 @@ section {
  *  Listing Grid styles
  */
 .listing-grid-item {
-  border: 1px solid #eeeeee; }
-  .listing-grid-item .img-wrapper {
-    height: 238px;
-    max-height: 238px;
-    overflow: hidden; }
+  margin-bottom: 1em; }
   .listing-grid-item img {
     width: 100%; }
+  .listing-grid-item p {
+    line-height: 1.4;
+    margin-bottom: 0; }
   .listing-grid-item .listing-caption {
     padding: 10px 10px 0; }
-    .listing-grid-item .listing-caption p {
-      line-height: 1.4;
-      margin-bottom: 0; }
   .listing-grid-item .listing-caption-left {
     float: left; }
   .listing-grid-item .listing-caption-right {
     float: right;
     text-align: right; }
+  .listing-grid-item .listing-address {
+    margin-top: 1em; }
   .listing-grid-item .caption-price {
     font-weight: 700; }
+  .listing-grid-item button {
+    bottom: 30px;
+    position: absolute;
+    right: 30px; }
   .listing-grid-item .listing-price {
     font-weight: 700; }
 
