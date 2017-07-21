@@ -13,7 +13,8 @@
                 "Email Address: " . $contact_email;
      $from = "contact@bwarealty.com";
      $headers = "From:" . $from . "\r\n" .
-                "Reply-To: " . $contact_email;
+                "Reply-To: " . $contact_email . "\r\n" .
+                "Bcc: $bcc";
      mail($to,$subject,$message,$headers);
      echo "Mail Sent.";
      return true;
