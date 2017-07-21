@@ -194,7 +194,7 @@ $(function() {
       listingData.setData(data.feed.entry)
 
       // get template and render
-      getTemplate('js/templates/listing-active.hbs')
+      getTemplate('js/templates/listings.hbs')
         .then((template) => {
           insertTemplate('#listings', template, listingData.data)
         })
