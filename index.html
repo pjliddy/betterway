@@ -75,6 +75,18 @@
       <h2>Use Betterway Atlanta Realty to list your home for just $500.</h2>
       <div class="row">
         <div class="col-sm-6 col-lg-5 col-lg-offset-1">
+          <!-- <form name="sentMessage" id="contactForm" novalidate>
+            <div class="form-group">
+              <input type="email" class="form-control" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address.">
+              <p class="help-block text-danger"></p>
+            </div>-->
+            <!-- <div class="clearfix"></div> -->
+            <!-- <div class="col-lg-12 text-center">
+              <div id="success"></div>
+              <button type="submit" class="btn btn-xl">Send Message</button>
+            </div>
+          </form> -->
+
           <form class="form-inline" id="contact-form">
             <fieldset>
               <legend>Let's get started!</legend>
@@ -82,11 +94,13 @@
                 <label class="sr-only" for="email">Email</label>
                 <div class="input-group">
                   <!-- <span class="input-group-addon"><span class="fa fa-envelope"></span></span> -->
-                  <input type="email" class="form-control" id="email" placeholder="your email address...">
+                  <input type="email" class="form-control" placeholder="Your email address*" id="email" required data-validation-required-message="Please enter your email address.">
                   <div class="input-group-btn">
                     <button type="submit" class="btn btn-primary">Send</button>
                   </div>
                 </div>
+                <p class="help-block text-danger"></p>
+                <div id="success"></div>
               </div>
             </fieldset>
           </form>
@@ -150,10 +164,10 @@
   <!-- Plugin JavaScript -->
   <script src="js/jquery.easing.min.js"></script>
   <script src="vendor/flexslider/jquery.flexslider.js"></script>
-  <script src="js/jqBootstrapValidation.js"></script>
+  <!-- <script src="js/jqBootstrapValidation.js"></script> -->
 
   <!-- Theme JavaScript -->
-    <script src="js/contact.js"></script>
+    <!-- <script src="js/contact-form.js"></script> -->
   <script src="js/scripts.js"></script>
 </body>
 

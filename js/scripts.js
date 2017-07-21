@@ -85,6 +85,17 @@ function getTemplate (path) {
   })
 }
 
+//  Submit Contact Form
+
+function submitContact (data) {
+  return $.ajax({
+    url: "./cgi/submit.php",
+    type: "POST",
+    data: data,
+    cache: false
+  })
+}
+
 //
 //  Listing Detail Functions
 //
@@ -113,6 +124,10 @@ function showDetails (mls) {
     })
     .fail((err) => console.log('listing template is not available'))
 }
+
+
+
+// jQuery Gallery Setup
 
 function setUpGallery() {
   // $('.flexslider').flexslider({
@@ -191,10 +206,24 @@ function handleEvents () {
     }
   })
 
+  // show listing detail modal when "see more" is clicked
   $('.listings').on('click', '.see-more', (e) => {
     showDetails($(e.target).data('mls'))
   })
 
+  // submit contact form
+  $('#contact-form').submit(event => {
+    event.preventDefault()
+    const email = $("input#email").val()
+    const data = {
+      email: email
+    }
+    submitContact(data)
+      .then(showSubmitSuccess)
+      .fail(showSubmitError)
+  })
+
+  // initialize jquery gallery in detail modal
   $('body').on('shown.bs.modal', '#detail-modal', () => {
     setUpGallery()
   })

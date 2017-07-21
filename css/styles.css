@@ -5973,7 +5973,9 @@ h6, .h6 {
     letter-spacing: .75px;
     margin-bottom: .5em; }
   .jumbotron .input-group {
-    width: 100%; }
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%; }
   .jumbotron .input-group-addon {
     background-color: #003720;
     border: #003720;
@@ -6034,6 +6036,9 @@ h6, .h6 {
     font-size: 2.25em;
     font-weight: 700;
     letter-spacing: 1.5px; }
+  .jumbotron .alert {
+    max-width: 100%;
+    text-shadow: none; }
 
 @media (min-width: 768px) {
   .jumbotron h1 {
