@@ -6152,7 +6152,8 @@ section {
 
 [class*=" imghvr-"] figcaption,
 [class^="imghvr-"] figcaption {
-  background-color: #003720; }
+  background-color: #003720;
+  padding: 1em; }
 
 [class*=" imghvr-"],
 [class^="imghvr-"] {

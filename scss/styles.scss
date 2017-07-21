@@ -402,6 +402,7 @@ section {
 [class*=" imghvr-"] figcaption,
 [class^="imghvr-"] figcaption {
   background-color: $brand-primary;
+  padding: 1em;
 }
 
 [class*=" imghvr-"],
