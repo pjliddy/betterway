@@ -1,47 +1,49 @@
 'use strict'
 
-// global listing data object
-let listingData ={}
+// set path to Google Sheet with listing data (JSON feed)
+const listingPath = "https://spreadsheets.google.com/feeds/list/1hzXzXdK1fqgaZC_eQdxLRFkUOHlW7puy9w9CPrNl5uE/od6/public/values?alt=json"
 
-// create global listing data object
+// initialize global listing data object
+let listingsObj ={}
+
+// global listing data object constructor
 
 const ListingData = function ( ) {
    data: []
  }
 
- ListingData.prototype.createImageArray = function ( ) {
-   this.data.forEach(e => {
-     e.images = e.gsx$images.$t.split(', ')
-     e.images.map(str => {
-       return str.trim()
-     })
-   })
- }
+// initialize data from Google Sheets JSON feed
 
 ListingData.prototype.setData = function (feedData) {
-  console.log(feedData)
-  this.data = feedData
-  this.createImageArray()
+  // initialize data array
+  this.data = []
+  // iterate through listing objects in JSON data feed
+  feedData.forEach(obj => {
+    // create an empty object for each listing
+    let newObj = {}
+    // iterate through properties of google sheet JSON feed
+    for (let prop in obj) {
+      // only save name:value pairs beginning with 'gsx$'
+      if (prop.startsWith('gsx$')) {
+        // slice off the first 4 chars of the property name
+        const newProp = prop.slice(4)
+        // and take the value of $t for that property
+        newObj[newProp] = obj[prop].$t
+        // convert list of image names into an array
+        if (newProp === 'images') {
+          let arr = newObj[newProp].split(',')
+          // remove whitespace before or after comma delimiter
+          arr.forEach((e, i, a) => {
+            a[i] = e.trim()
+          })
+          newObj[newProp] = arr
+        }
+      }
+    }
+    // push the new data object onto the listing data array
+    this.data.push(newObj)
+  })
 }
-
-
-// let listingData = {
-//   data: [],
-//   setData (feedData) {
-//     console.log(feedData)
-//     this.data = feedData
-//     this.createImageArray()
-//   },
-//   createImageArray () {
-//     this.data.forEach(e => {
-//       e.images = e.gsx$images.$t.split(', ')
-//     })
-//   }
-// }
-
-// set path to Google Sheet with listing data (JSON feed)
-
-const listingPath = "https://spreadsheets.google.com/feeds/list/1hzXzXdK1fqgaZC_eQdxLRFkUOHlW7puy9w9CPrNl5uE/od6/public/values?alt=json"
 
 //
 // Template Rendering Functions
@@ -127,9 +129,9 @@ function submitContact (data) {
 
 function getDetailData (mls) {
   // return individual data object from listingData with mls number
-  const result = listingData.data.find(
+  const result = listingsObj.data.find(
     function (e) {
-      return e.gsx$mls.$t == mls
+      return e.mls == mls
     }
   )
   return result
@@ -266,14 +268,14 @@ $(function() {
   getListingData(listingPath)
     .then((data) => {
       // set global listing object to JSON feed data
-      listingData = new ListingData()
+      listingsObj = new ListingData()
 
-      listingData.setData(data.feed.entry)
+      listingsObj.setData(data.feed.entry)
 
       // get template and render
       getTemplate('js/templates/listings.hbs')
         .then((template) => {
-          insertTemplate('#listings', template, listingData.data)
+          insertTemplate('#listings', template, listingsObj.data)
         })
         .fail((err) => console.log('listing template is not available'))
     })

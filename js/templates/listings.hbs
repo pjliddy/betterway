@@ -8,34 +8,34 @@
       {{!-- <div class="listing-grid-item"> --}}
         <figure class="imghvr-flip-horiz">
           {{!-- <div class="img-wrapper"> --}}
-            <img class="hvr-img img-responsive" src="img/mls/{{listing.gsx$mls.$t}}/{{listing.images.[0]}}" >
+            <img class="hvr-img img-responsive" src="img/mls/{{listing.mls}}/{{listing.images.[0]}}" >
           {{!-- </div> --}}
           <div class="listing-caption">
             <div class="listing-caption-left">
-              <p class="caption-price">${{listing.gsx$price.$t}}</p>
-              <p class="caption-status">{{listing.gsx$status.$t}}</p>
+              <p class="caption-price">${{listing.price}}</p>
+              <p class="caption-status">{{listing.status}}</p>
             </div>
             <div class="listing-caption-right">
-              <p class="caption-location">{{listing.gsx$city.$t}}, {{listing.gsx$state.$t}}</p>
-              <p class="caption-type">{{listing.gsx$type.$t}}</p>
+              <p class="caption-location">{{listing.city}}, {{listing.state}}</p>
+              <p class="caption-type">{{listing.type}}</p>
             </div>
             <div class="clearfix"></div>
           </div>
 
           <figcaption>
             <div class="listing-caption-left">
-              <p class="listing-price">${{listing.gsx$price.$t}}</p>
-              <p class="listing-status">Status: {{listing.gsx$status.$t}}</p>
-              <p class="listing-address">{{listing.gsx$address.$t}}<br />
-                 {{listing.gsx$city.$t}}, {{listing.gsx$state.$t}} {{listing.gsx$zip.$t}}</p>
+              <p class="listing-price">${{listing.price}}</p>
+              <p class="listing-status">Status: {{listing.status}}</p>
+              <p class="listing-address">{{listing.address}}<br />
+                 {{listing.city}}, {{listing.state}} {{listing.zip}}</p>
             </div>
 
             <div class="listing-caption-right">
-              <p class="listing-type">{{listing.gsx$type.$t}}</p>
-              <p class="listing-mls">MLS #: {{listing.gsx$mls.$t}}</p>
+              <p class="listing-type">{{listing.type}}</p>
+              <p class="listing-mls">MLS #: {{listing.mls}}</p>
             </div>
 
-            <button class="btn btn-theme see-more" type="button" data-mls="{{listing.gsx$mls.$t}}">See More</button>
+            <button class="btn btn-theme see-more" type="button" data-mls="{{listing.mls}}">See More</button>
 
           </figcaption>
         </figure>
