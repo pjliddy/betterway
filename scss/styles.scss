@@ -4,9 +4,9 @@
 @import url('https://fonts.googleapis.com/css?family=Petit+Formal+Script');
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i');
 
-/*
- *  Color Styles
- */
+//
+//  Color Styles
+//
 
 .brand-bg {
   background-color: $brand-primary;
@@ -32,54 +32,61 @@
   color: $theme-highlight;
 }
 
-/*
- *  Global Styles
- */
+//
+//  Global Styles
+//
 
 html,
 body {
+  font-weight: $font-weight-base;
   height: 100%;
   width: 100%;
-  font-weight: $font-weight-base;
 }
 
-h1, .h1 {
+h1,
+.h1 {
   color: $gray-darker;
   font-weight: 700;
 }
 
-h2, .h2 {
+h2,
+.h2 {
   font-size: 3em;
   color: $gray-darker;
   font-weight: 500;
 }
 
-h3, .h3,
-h4, .h4,
-h5, .h5,
-h6, .h6 {
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
   color: $gray-darker;
   font-weight: 500;
 }
 
-/*
- *  Navbar styles
- */
+//
+//  Navbar styles
+//
 
 .navbar-custom {
   background: $brand-primary;
   border: 0;
+  font-size: $navbar-font-size;
+  font-weight: $font-weight-base;
   margin: 0;
-  padding: 14px 8px 0;
 
   .navbar-brand {
     color: $white;
+    display: inline-block;
     font-family: 'Petit Formal Script', cursive;
-    padding: 0;
+    height: 100%;
 
     img {
       display: inline;
-      // height: 2em;
       height: 1.75em;
       margin-right: .25em;
       vertical-align: middle;
@@ -107,7 +114,9 @@ h6, .h6 {
     background-color: $brand-primary;
     border: 0;
     color: $white;
-    margin: 0;
+    font-weight: $font-weight-base;
+
+    // margin: 0;
 
     &:hover,
     &:active,
@@ -136,12 +145,11 @@ h6, .h6 {
 
 @media(min-width:768px) {
   .navbar-custom {
-    padding: 14px 8px 0;
+    // padding: 14px 8px 0;
 
     .navbar-brand {
       .logo-type {
         display: inline-block;
-        line-height: .9;
         vertical-align: middle;
       }
 
@@ -158,7 +166,8 @@ h6, .h6 {
 
     .navbar-nav > li > a {
       color: $white;
-      margin-left: .5em;
+      // margin-left: .5em;
+      margin: .5em 0;
       padding: .5em .75em;
     }
 
@@ -172,9 +181,9 @@ h6, .h6 {
   }
 }
 
-/*
- *  Hero Area (Jumbotron) Styles
- */
+//
+//  Hero Area (Jumbotron) Styles
+//
 
 .jumbotron {
   @include background-cover;
@@ -184,6 +193,7 @@ h6, .h6 {
   background-repeat: no-repeat;
   // background-color: $theme-primary;
   color: $white;
+  font-weight: 400;
   height: calc(100vh - $navbar-height);
   margin-top: $navbar-height;
   text-align: center;
@@ -218,9 +228,9 @@ h6, .h6 {
   }
 
   .input-group {
-    width: 100%;
     max-width: 100%;
     min-width: 100%;
+    width: 100%;
   }
 
   .input-group-addon {
@@ -230,6 +240,7 @@ h6, .h6 {
   }
 
   .form-control {
+    font-weight: 300;
     height: 38px;
     padding: 12px;
   }
@@ -248,13 +259,14 @@ h6, .h6 {
     &:active,
     &.active {
       background-color: $theme-highlight;
-      color: $brand-primary;
       border-color: $theme-highlight;
+      color: $brand-primary;
     }
   }
 
   .phone-number-intro {
     font-size: 1.25em;
+    font-weight: 400;
     letter-spacing: .75px;
     margin: 1em 0 0;
   }
@@ -320,6 +332,7 @@ h6, .h6 {
 
 section {
   margin-top: 1.25em;
+
   h2 {
     color: $brand-primary;
     // margin: 1em 0 1em;
@@ -327,13 +340,12 @@ section {
   }
 }
 
-/*
- *  Services Styles
- */
+//
+//  Services Styles
+//
 
-#service {
-   margin-top: 30px;
-
+section.service {
+  margin-top: 30px;
 
   .service-item {
     margin-top: 30px;
@@ -351,9 +363,9 @@ section {
   border: 0;
 }
 
-/*
- *  Listing Grid styles
- */
+//
+//  Listing Grid styles
+//
 
 .listing-grid-item {
   margin-bottom: 1em;
@@ -373,15 +385,17 @@ section {
 
   .listing-caption-left {
     float: left;
+    padding: 0;
   }
 
   .listing-caption-right {
     float: right;
+    padding: 0;
     text-align: right;
   }
 
   .listing-address {
-    margin-top: 1em
+    margin-top: 1em;
   }
 
   .caption-price {
@@ -389,9 +403,9 @@ section {
   }
 
   button {
-    bottom: 30px;
+    bottom: 1.5em;
     position: absolute;
-    right: 30px;
+    right: 1.5em;
   }
 
   .listing-price {
@@ -402,7 +416,7 @@ section {
 [class*=" imghvr-"] figcaption,
 [class^="imghvr-"] figcaption {
   background-color: $brand-primary;
-  padding: 1em;
+  padding: 1.5em;
 }
 
 [class*=" imghvr-"],
@@ -414,6 +428,32 @@ section {
 }
 
 // Listing Detail Styles
+
+.modal-content {
+  border: 0;
+  border-radius: $border-radius-base;
+}
+
+.modal-header {
+  background-color: $brand-primary;
+  color: $white;
+
+  .close {
+    color: $white;
+    opacity: 1;
+
+    &:hover {
+      color: $theme-highlight;
+    }
+  }
+
+  .modal-title {
+    color: $white;
+    font-weight: 400;
+    line-height: 1.3;
+  }
+}
+
 
 .detail-modal {
   .img-gallery {
@@ -431,12 +471,35 @@ section {
 
   .detail-description {
     margin-bottom: 1.5em;
+    margin-top: 1.25em;
   }
 
-  .detail-label {
-    font-weight: 500;
+  .detail-group {
+    margin-bottom: 1.25em;
+
+    h4 {
+      color: $brand-primary;
+      margin-bottom: .5em;
+    }
+
+    hr {
+      margin: 0 0 .5em;
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+
+    .detail-label {
+      // color: $brand-primary;
+      font-weight: 500;
+    }
   }
 
+}
+
+.flexslider {
+  margin-bottom: 0;
 }
 
 // @media(min-width:768px) {

@@ -62,7 +62,7 @@ function renderTemplate(source, data) {
 
 // render template and insert in target element
 
-function insertTemplate(target, source, data) {
+function replaceTemplate(target, source, data) {
   var template = Handlebars.compile(source);
   var content = template({ data: data });
   $(target).html(content);
@@ -76,13 +76,19 @@ function appendTemplate(target, source, data) {
   $(target).append(content);
 }
 
+// clear element from DOM
+
+function removeTemplate(target) {
+  $(target).remove();
+}
+
 // display modal
 
 function showModal(content) {
   // if there's already a modal
   if ($('.modal').length) {
     // replace the existing modal
-    insertTemplate($('.modal')[0], content);
+    replaceTemplate($('.modal')[0], content);
   } else {
     // append a new modal to the body
     $('body').append(content);
@@ -250,6 +256,11 @@ function handleEvents() {
   $('body').on('shown.bs.modal', '#detail-modal', function () {
     setUpGallery();
   });
+
+  // clear modal from DOM when closed
+  $('body').on('hidden.bs.modal', '.modal', function () {
+    removeTemplate('.modal');
+  });
 }
 
 //
@@ -269,7 +280,7 @@ $(function () {
 
     // get template and render
     getTemplate('js/templates/listings.hbs').then(function (template) {
-      insertTemplate('#listings', template, listingsObj.data);
+      replaceTemplate('#listings', template, listingsObj.data);
     }).fail(function (err) {
       return console.log('listing template is not available');
     });

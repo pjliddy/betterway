@@ -34,30 +34,46 @@
 
         <p class="detail-description">{{data.description}}</p>
 
-        <p class="pull-right"><span class="detail-label">MLS: </span>{{data.mls}}</p>
-        <p><span class="detail-label">Price: </span>${{data.price}}</p>
+        <div class="row">
+          <div class="detail-group col-sm-6">
+            <p><span class="detail-label">Price: </span>${{data.price}}</p>
+            <p><span class="detail-label">Type: </span>{{data.type}}</p>
+            <p><span class="detail-label">Year Built: </span>{{data.yearbuilt}}</p>
+          </div>
 
-        <p class="pull-right"><span class="detail-label">Status: </span> {{data.status}}</p>
-        <p><span class="detail-label">Type: </span>{{data.type}}</p>
+          <div class="detail-group col-sm-6">
+            <p><span class="detail-label">MLS: </span>{{data.mls}}</p>
+            <p><span class="detail-label">Status: </span> {{data.status}}</p>
+            <p><span class="detail-label">County: </span>{{data.county}}</p>
+          </div>
 
+          <div class="detail-group col-sm-6">
+            <h4>Rooms</h4>
+            <hr>
+            <p><span class="detail-label">Bedrooms: </span>{{data.bedrooms}}</p>
+            <p><span class="detail-label">Baths: </span>{{data.bathrooms}}</p>
+            <p><span class="detail-label">Half Baths: </span>{{data.halfbaths}}</p>
+          </div>
 
-        <p class="pull-right"><span class="detail-label">County: </span>{{data.county}}</p>
-        <p><span class="detail-label">Year Built: </span>{{data.yearbuilt}}</p>
+          <div class="detail-group col-sm-6">
+            <h4>Schools</h4>
+            <hr>
+            <p><span class="detail-label">Elementary: </span>{{data.elementaryschool}}</p>
+            <p><span class="detail-label">Middle: </span>{{data.middleschool}}</p>
+            <p><span class="detail-label">High: </span>{{data.highschool}}</p>
+          </div>
 
-        <p><span class="detail-label">Bedrooms: </span>{{data.bedrooms}}</p>
-        <p><span class="detail-label">Baths: </span>{{data.bathrooms}}</p>
-        <p><span class="detail-label">Half Baths: </span>{{data.halfbaths}}</p>
-
-        <p><span class="detail-label">Heating: </span>{{data.heating}}</p>
-        <p><span class="detail-label">Cooling: </span>{{data.cooling}}</p>
-        <p><span class="detail-label">Elementary School: </span>{{data.elementaryschool}}</p>
-        <p><span class="detail-label">Middle School: </span>{{data.middleschool}}</p>
-        <p><span class="detail-label">High School: </span>{{data.highschool}}</p>
+          <div class="detail-group col-sm-6">
+            <h4>Heating &amp; Cooling</h4>
+            <hr>
+            <p><span class="detail-label">Heating: </span>{{data.heating}}</p>
+            <p><span class="detail-label">Cooling: </span>{{data.cooling}}</p>
+          </div>
+        </div>
       </div>
-
       <div class="modal-footer">
-        <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Close</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+</div>
