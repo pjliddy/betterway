@@ -1,0 +1,48 @@
+<div class="page-header">
+  <h2>Our Listings</h2>
+</div>
+
+<div class="row">
+  {{#each data as |listing|}}
+    <div class="col-md-4 col-sm-6 listing-grid-item">
+      {{!-- <div class="listing-grid-item"> --}}
+        <figure class="imghvr-flip-horiz">
+          {{!-- <div class="img-wrapper"> --}}
+            <img class="hvr-img img-responsive" src="img/mls/{{listing.mls}}/{{listing.images.[0]}}" >
+          {{!-- </div> --}}
+          <div class="listing-caption">
+            <div class="listing-caption-left">
+              <p class="caption-price">${{listing.price}}</p>
+              <p class="caption-status">{{listing.status}}</p>
+            </div>
+            <div class="listing-caption-right">
+              <p class="caption-location">{{listing.city}}, {{listing.state}}</p>
+              <p class="caption-type">{{listing.type}}</p>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+
+          <figcaption>
+            <div class="listing-caption-right col-sm-6">
+              <p class="listing-type">{{listing.type}}</p>
+              <p class="listing-mls">MLS #: {{listing.mls}}</p>
+            </div>
+
+            <div class="listing-caption-left col-sm-6">
+              <p class="listing-price">${{listing.price}}</p>
+              <p class="listing-status">Status: {{listing.status}}</p>
+            </div>
+            <div class="listing-caption-left col-sm-12">
+              <p class="listing-address">{{listing.address}}<br />
+                 {{listing.city}}, {{listing.state}} {{listing.zip}}</p>
+            </div>
+
+
+            <button class="btn btn-theme see-more" type="button" data-mls="{{listing.mls}}">See More</button>
+
+          </figcaption>
+        </figure>
+      {{!-- </div> --}}
+    </div>
+  {{/each}}
+</div>
