@@ -24,7 +24,7 @@ ListingData.prototype.setData = function (feedData) {
     // iterate through properties of google sheet JSON feed
     for (let prop in obj) {
       // only save name:value pairs beginning with 'gsx$'
-      if (prop.startsWith('gsx$')) {
+      if (prop.slice(0,4) === 'gsx$') {
         // slice off the first 4 chars of the property name
         const newProp = prop.slice(4)
         // and take the value of $t for that property
@@ -134,19 +134,18 @@ function submitContact (data) {
 // get data from listingData array from mls number
 
 function getDetailData (mls) {
-  // return individual data object from listingData with mls number
-  const result = listingsObj.data.find(
-    function (e) {
-      return e.mls == mls
+  for (let i = 0; i < listingsObj.data.length; i++) {
+    console.log(listingsObj.data[i])
+    if (listingsObj.data[i].mls == mls) {
+      console.log(mls)
+      return listingsObj.data[i]
     }
-  )
-  return result
+  }
 }
 
 // render and display listing detail in a full screen modal
 
 function showDetails (mls) {
-  // getModalTemplate('body','js/templates/detail-modal.hbs', mls);
   getTemplate('js/templates/modal-detail.hbs')
     .then((template) => {
       const data = getDetailData(mls)
@@ -155,8 +154,6 @@ function showDetails (mls) {
     })
     .fail((err) => console.log('listing template is not available'))
 }
-
-
 
 // jQuery Gallery Setup
 
