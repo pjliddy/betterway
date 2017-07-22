@@ -225,6 +225,7 @@ h6,
     font-size: 1.25em;
     letter-spacing: .75px;
     margin-bottom: .5em;
+    text-align: center;
   }
 
   .input-group {
@@ -239,10 +240,11 @@ h6,
     color: $white;
   }
 
-  .form-control {
+  .form-control, input {
     font-weight: 300;
     height: 38px;
     padding: 12px;
+    line-height: 1;
   }
 
   .input-group-btn .btn-primary{

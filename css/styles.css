@@ -5965,7 +5965,8 @@ h6,
     color: #fff;
     font-size: 1.25em;
     letter-spacing: .75px;
-    margin-bottom: .5em; }
+    margin-bottom: .5em;
+    text-align: center; }
   .jumbotron .input-group {
     max-width: 100%;
     min-width: 100%;
@@ -5974,10 +5975,11 @@ h6,
     background-color: #003720;
     border: #003720;
     color: #fff; }
-  .jumbotron .form-control {
+  .jumbotron .form-control, .jumbotron input {
     font-weight: 300;
     height: 38px;
-    padding: 12px; }
+    padding: 12px;
+    line-height: 1; }
   .jumbotron .input-group-btn .btn-primary {
     color: #fff;
     background-color: #003720;
