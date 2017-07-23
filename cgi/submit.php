@@ -13,9 +13,9 @@
      $bcc = "pjliddy@gmail.com";
      $subject = "Contact from bwarealty.com";
      $message = "I'm interested in listing my house. Please contact me.\n\n" .
-                "Name: " . $name . "\n\n" .;
-                "Email Address: " . $contact_email . "\n\n" .;
-                "Phone: " . $phone . "\n\n";
+                "Name: " . $name . "\n\n" .
+                "Email Address: " . $contact_email . "\n\n" .
+                "Phone: " . $phone;
      $from = "contact@bwarealty.com";
      $headers = "From:" . $from . "\r\n" .
                 "Reply-To: " . $contact_email . "\r\n" .
