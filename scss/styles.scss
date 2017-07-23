@@ -56,8 +56,8 @@ h1,
 
 h2,
 .h2 {
-  font-size: 3em;
   color: $gray-darker;
+  font-size: 3em;
   font-weight: 500;
 }
 
@@ -233,6 +233,12 @@ h6,
     font-weight: 700;
     letter-spacing: 1.5px;
   }
+
+  a[href^="tel"] {
+    color: $theme-highlight;
+    text-decoration: none;
+  }
+
 }
 
 @media(min-width:768px) {
@@ -259,6 +265,7 @@ h6,
       font-size: 2.5em;
       line-height: 1.2;
     }
+
     .contact-btn {
       margin-bottom: 3em;
     }
@@ -311,8 +318,8 @@ legend {
 .form-control, input {
   font-weight: 300;
   height: 38px;
-  padding: 12px;
   line-height: 1;
+  padding: 12px;
 }
 
 .input-group-btn .btn-primary{

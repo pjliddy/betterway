@@ -222,7 +222,7 @@ function handleEvents () {
   $('a.page-scroll').bind('click', function(event) {
       const $anchor = $(this)
       $('html, body').stop().animate({
-          scrollTop: ($($anchor.attr('href')).offset().top - 50)
+          scrollTop: ($($anchor.attr('href')).offset().top - 75)
       }, 800, 'easeInOutExpo')
       event.preventDefault()
   });
@@ -230,7 +230,7 @@ function handleEvents () {
   // Highlight the top nav as page scrolls
   $('body').scrollspy({
       target: '.navbar-fixed-top',
-      offset: 51
+      offset: 75
   })
 
   // Close the Responsive Menu on Menu Item Click
@@ -241,7 +241,7 @@ function handleEvents () {
   // Offset for Main Navigation
   $('#mainNav').affix({
     offset: {
-      top: 100
+      top: 75
     }
   })
 

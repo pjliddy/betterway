@@ -5885,8 +5885,8 @@ h1,
 
 h2,
 .h2 {
-  font-size: 3em;
   color: #222222;
+  font-size: 3em;
   font-weight: 500; }
 
 h3,
@@ -6006,6 +6006,9 @@ h6,
     font-size: 2.25em;
     font-weight: 700;
     letter-spacing: 1.5px; }
+  .jumbotron a[href^="tel"] {
+    color: #ffe800;
+    text-decoration: none; }
 
 @media (min-width: 768px) {
   .jumbotron h1 {
@@ -6059,8 +6062,8 @@ legend {
 .form-control, input {
   font-weight: 300;
   height: 38px;
-  padding: 12px;
-  line-height: 1; }
+  line-height: 1;
+  padding: 12px; }
 
 .input-group-btn .btn-primary {
   color: #fff;
