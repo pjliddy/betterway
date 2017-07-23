@@ -184,8 +184,19 @@ function setUpGallery() {
 }
 
 //
-//  Contact Submission Functions
+//  Contact Form Modal Functions
 //
+
+function showContactForm() {
+  getTemplate('js/templates/modal-contact.hbs').then(function (template) {
+    var content = renderTemplate(template);
+    showModal(content);
+    // auto-format phone number on input
+    $("#phone").mask("(999) 999-9999", { placeholder: " " });
+  }).fail(function (err) {
+    return console.log('contact template is not available');
+  });
+}
 
 function showSubmitError() {
   getTemplate('js/templates/modal-submit-error.hbs').then(function (template) {
@@ -241,16 +252,27 @@ function handleEvents() {
     showDetails($(e.target).data('mls'));
   });
 
+  // show contact form modal when button is clicked
+  $('.contact-btn').click(function (e) {
+    showContactForm();
+  });
+
   // submit contact form
-  $('#contact-form').submit(function (event) {
+  $('body').on('submit', 'form#contact-form', function (event) {
+    console.log('submit form');
     event.preventDefault();
+    var name = $("input#firstName").val() + ' ' + $("input#lastName").val();
     var email = $("input#email").val();
+    var phone = $("input#phone").val();
     var data = {
-      email: email
+      name: name,
+      email: email,
+      phone: phone
     };
     submitContact(data).then(showSubmitSuccess).fail(showSubmitError);
 
-    $("input#email").val('');
+    // reset form fields
+    $("form#contact-form input").val('');
   });
 
   // initialize jquery gallery in detail modal

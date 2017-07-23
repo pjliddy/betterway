@@ -32,6 +32,11 @@
   color: $theme-highlight;
 }
 
+.btn-theme {
+  @include button-variant($brand-primary, $theme-highlight, $theme-highlight);
+  border: 0;
+}
+
 //
 //  Global Styles
 //
@@ -215,57 +220,6 @@ h6,
     margin: 0 1em 1em;
   }
 
-  form {
-    margin: 0 10px;
-  }
-
-  legend {
-    border: 0;
-    color: $white;
-    font-size: 1.25em;
-    letter-spacing: .75px;
-    margin-bottom: .5em;
-    text-align: center;
-  }
-
-  .input-group {
-    max-width: 100%;
-    min-width: 100%;
-    width: 100%;
-  }
-
-  .input-group-addon {
-    background-color: $brand-primary;
-    border: $brand-primary;
-    color: $white;
-  }
-
-  .form-control, input {
-    font-weight: 300;
-    height: 38px;
-    padding: 12px;
-    line-height: 1;
-  }
-
-  .input-group-btn .btn-primary{
-    @include button-variant($white, $brand-primary, $brand-primary);
-
-    &:hover,
-    &:focus,
-    &.focus {
-      background-color: $theme-highlight;
-      border-color: $theme-highlight;
-      color: $brand-primary;
-    }
-
-    &:active,
-    &.active {
-      background-color: $theme-highlight;
-      border-color: $theme-highlight;
-      color: $brand-primary;
-    }
-  }
-
   .phone-number-intro {
     font-size: 1.25em;
     font-weight: 400;
@@ -278,11 +232,6 @@ h6,
     font-size: 2.25em;
     font-weight: 700;
     letter-spacing: 1.5px;
-  }
-
-  .alert {
-    max-width: 100%;
-    text-shadow: none;
   }
 }
 
@@ -300,25 +249,6 @@ h6,
       margin: 0 0 3em;
     }
 
-    form {
-      margin: 0 auto;
-      width: 75%;
-
-      .form-group,
-      .input-group {
-        // margin: 0;
-        // width: 100%;
-      }
-    }
-
-    legend {
-      border: 0;
-      color: $white;
-      font-size: 1.25em;
-      font-weight: 500;
-      margin-bottom: .25em;
-    }
-
     .phone-number-intro {
       font-size: 1.25em;
       font-weight: 500;
@@ -327,10 +257,97 @@ h6,
 
     .phone-number {
       font-size: 2.5em;
-      line-height: 1.25;
+      line-height: 1.2;
+    }
+    .contact-btn {
+      margin-bottom: 3em;
     }
   }
 }
+
+.contact-modal .modal-body {
+  padding: 1.25em;
+}
+
+// Form Styles
+
+form {
+  margin: 0;
+
+  [class*=" col-"] {
+    padding: 0;
+  }
+
+  [class*=" col-sm-6"]:first-of-type {
+    padding-right: .75em;
+  }
+
+  [class*=" col-sm-6"]:last-of-type {
+    padding-right: .75em;
+  }
+}
+
+legend {
+  border: 0;
+  color: $white;
+  font-size: 1.25em;
+  letter-spacing: .75px;
+  margin-bottom: .5em;
+  text-align: center;
+}
+
+.input-group {
+  max-width: 100%;
+  min-width: 100%;
+  width: 100%;
+}
+
+.input-group-addon {
+  background-color: $brand-primary;
+  border: $brand-primary;
+  color: $white;
+}
+
+.form-control, input {
+  font-weight: 300;
+  height: 38px;
+  padding: 12px;
+  line-height: 1;
+}
+
+.input-group-btn .btn-primary{
+  @include button-variant($white, $brand-primary, $brand-primary);
+
+  &:hover,
+  &:focus,
+  &.focus {
+    background-color: $theme-highlight;
+    border-color: $theme-highlight;
+    color: $brand-primary;
+  }
+
+  &:active,
+  &.active {
+    background-color: $theme-highlight;
+    border-color: $theme-highlight;
+    color: $brand-primary;
+  }
+}
+@media(min-width:768px) {
+  form {
+    // margin: 0;
+    // width: 75%;
+  }
+
+  legend {
+    border: 0;
+    color: $white;
+    font-size: 1.25em;
+    font-weight: 500;
+    margin-bottom: .25em;
+  }
+}
+// Section styles
 
 section {
   margin-top: 1.25em;
@@ -358,11 +375,6 @@ section.service {
       text-align: justify;
     }
   }
-}
-
-.btn-theme {
-  @include button-variant($brand-primary, $theme-highlight, $theme-highlight);
-  border: 0;
 }
 
 //

@@ -6,6 +6,9 @@
      return false;
    } else {
      $contact_email = strip_tags(htmlspecialchars($_POST['email']));
+     $name = strip_tags(htmlspecialchars($_POST['name']));
+     $phone = strip_tags(htmlspecialchars($_POST['phone']));
+     
      $to = "dan@bwarealty.com";
      $bcc = "pjliddy@gmail.com";
      $subject = "Contact from bwarealty.com";
