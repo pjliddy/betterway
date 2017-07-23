@@ -8,12 +8,14 @@
      $contact_email = strip_tags(htmlspecialchars($_POST['email']));
      $name = strip_tags(htmlspecialchars($_POST['name']));
      $phone = strip_tags(htmlspecialchars($_POST['phone']));
-     
+
      $to = "dan@bwarealty.com";
      $bcc = "pjliddy@gmail.com";
      $subject = "Contact from bwarealty.com";
      $message = "I'm interested in listing my house. Please contact me.\n\n" .
-                "Email Address: " . $contact_email;
+                "Name: " . $name . "\n\n" .
+                "Email Address: " . $contact_email . "\n\n" .
+                "Phone: " . $phone;
      $from = "contact@bwarealty.com";
      $headers = "From:" . $from . "\r\n" .
                 "Reply-To: " . $contact_email . "\r\n" .
