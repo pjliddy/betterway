@@ -6157,6 +6157,7 @@ section.service {
     font-weight: 500;
     margin-top: 2em; }
   .listing-grid-item .caption-savings {
+    display: inline;
     font-weight: 600;
     margin-top: .25em;
     text-align: center; }

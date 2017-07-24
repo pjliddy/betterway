@@ -21,11 +21,13 @@
               <p class="caption-location">{{listing.city}}, {{listing.state}}</p>
               <p class="caption-type">{{listing.type}}</p>
             </div>
-            <div class="listing-caption-left col-sm-12">
+            <div class="clearfix"></div>
+
+            <div class="col-sm-12 text-center">
               <p class="caption-savings">{{#save-label listing.status}}{{/save-label}}${{#savings listing.price}}{{/savings}}</p>
             </div>
-
             <div class="clearfix"></div>
+
           </div>
 
           <figcaption>
