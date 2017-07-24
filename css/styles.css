@@ -6158,7 +6158,8 @@ section.service {
     margin-top: 2em; }
   .listing-grid-item .caption-savings {
     font-weight: 600;
-    margin-top: .25em; }
+    margin-top: .25em;
+    text-align: center; }
   .listing-grid-item .caption-price {
     font-weight: 600; }
   .listing-grid-item button {
