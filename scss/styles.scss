@@ -393,6 +393,8 @@ section.service {
 
   img {
     width: 100%;
+    max-width: 100%;
+    max-height: 100%;
   }
 
   p {
@@ -401,7 +403,7 @@ section.service {
   }
 
   .listing-caption {
-    padding: 10px 10px 0;
+    padding: 10px 0 0;
   }
 
   .listing-caption-left {
@@ -419,8 +421,18 @@ section.service {
     margin-top: 1em;
   }
 
+  .listing-savings {
+    font-weight: 500;
+    margin-top: 2em;
+  }
+
+  .caption-savings{
+    font-weight: 600;
+    margin-top: .25em;
+  }
+
   .caption-price {
-    font-weight: 700;
+    font-weight: 600;
   }
 
   button {
@@ -430,7 +442,7 @@ section.service {
   }
 
   .listing-price {
-    font-weight: 700;
+    font-weight: 600;
   }
 }
 

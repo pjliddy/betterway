@@ -6136,12 +6136,14 @@ section.service {
 .listing-grid-item {
   margin-bottom: 1em; }
   .listing-grid-item img {
-    width: 100%; }
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%; }
   .listing-grid-item p {
     line-height: 1.4;
     margin-bottom: 0; }
   .listing-grid-item .listing-caption {
-    padding: 10px 10px 0; }
+    padding: 10px 0 0; }
   .listing-grid-item .listing-caption-left {
     float: left;
     padding: 0; }
@@ -6151,14 +6153,20 @@ section.service {
     text-align: right; }
   .listing-grid-item .listing-address {
     margin-top: 1em; }
+  .listing-grid-item .listing-savings {
+    font-weight: 500;
+    margin-top: 2em; }
+  .listing-grid-item .caption-savings {
+    font-weight: 600;
+    margin-top: .25em; }
   .listing-grid-item .caption-price {
-    font-weight: 700; }
+    font-weight: 600; }
   .listing-grid-item button {
     bottom: 1.5em;
     position: absolute;
     right: 1.5em; }
   .listing-grid-item .listing-price {
-    font-weight: 700; }
+    font-weight: 600; }
 
 [class*=" imghvr-"] figcaption,
 [class^="imghvr-"] figcaption {
