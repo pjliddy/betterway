@@ -5890,7 +5890,12 @@ h2,
   font-weight: 500; }
 
 h3,
-.h3,
+.h3 {
+  color: #555555;
+  font-weight: 400;
+  margin-top: 0;
+  text-align: center; }
+
 h4,
 .h4,
 h5,

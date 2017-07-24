@@ -62,7 +62,13 @@ h2,
 }
 
 h3,
-.h3,
+.h3 {
+  color: $gray;
+  font-weight: 400;
+  margin-top: 0;
+  text-align: center;
+}
+
 h4,
 .h4,
 h5,
