@@ -12,40 +12,37 @@
 
           {{!-- </div> --}}
           <div class="listing-caption">
-            <div class="listing-caption-left col-sm-6">
-              <p class="caption-price">${{listing.price}}</p>
-              <p class="caption-status">{{listing.status}}</p>
-
-            </div>
             <div class="listing-caption-right col-sm-6">
-              <p class="caption-location">{{listing.city}}, {{listing.state}}</p>
+              <p class="caption-savings">{{#save-label listing.status}}{{/save-label}}${{#savings listing.price}}{{/savings}}</p>
+              {{!-- <p class="caption-location">{{listing.city}}, {{listing.state}}</p> --}}
               <p class="caption-type">{{listing.type}}</p>
             </div>
-            <div class="clearfix"></div>
-
-            <div class="col-sm-12 text-center">
-              <p class="caption-savings">{{#save-label listing.status}}{{/save-label}}${{#savings listing.price}}{{/savings}}</p>
+            <div class="listing-caption-left col-sm-6">
+              <p class="caption-price">${{listing.price}}</p>
+              {{!-- <p class="caption-status">{{listing.status}}</p> --}}
+              {{#status-label listing.status}}{{/status-label}}
             </div>
             <div class="clearfix"></div>
-
           </div>
 
           <figcaption>
-            <div class="listing-caption-right col-sm-6">
-              <p class="listing-type">{{listing.type}}</p>
-              <p class="listing-mls">MLS: {{listing.mls}}</p>
-            </div>
 
             <div class="listing-caption-left col-sm-6">
               <p class="listing-price">${{listing.price}}</p>
               <p class="listing-status">{{listing.status}}</p>
             </div>
+
+            <div class="listing-caption-right col-sm-6">
+              <p class="listing-savings">{{#save-label listing.status}}{{/save-label}}${{#savings listing.price}}{{/savings}}</p>
+              <p class="listing-type">{{listing.type}}</p>
+            </div>
+
+            <div class="clearfix"></div>
+
             <div class="listing-caption-left col-sm-12">
               <p class="listing-address">{{listing.address}}<br />
                  {{listing.city}}, {{listing.state}} {{listing.zip}}</p>
-            </div>
-            <div class="listing-caption-left col-sm-12">
-               <p class="listing-savings">{{#save-label listing.status}}{{/save-label}}${{#savings listing.price}}{{/savings}}</p>
+              <p class="listing-mls">MLS: {{listing.mls}}</p>
             </div>
             <div class="clearfix"></div>
 

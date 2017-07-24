@@ -5,10 +5,27 @@ Handlebars.registerHelper('savings', function(price, options) {
 })
 
 Handlebars.registerHelper('save-label', function(status, options) {
-  console.log(status)
+  console.log(options.fn(status))
+
   if (status === "Sold") {
-    return "Seller Saved: "
+    return "Saved: "
   } else {
-    return "Potential Seller Savings: "
+    return "Saving: "
+  }
+})
+
+Handlebars.registerHelper('status-label', function(status, options) {
+  console.log(options.fn(status))
+
+  if (status === "Sold") {
+    return new Handlebars.SafeString(
+      '<p class="caption-status status-sold">'
+      + status
+      + '</p>')
+  } else {
+    return new Handlebars.SafeString(
+      '<p class="caption-status">'
+      + status
+      + '</p>')
   }
 })

@@ -423,7 +423,11 @@ section.service {
 
   .listing-savings {
     font-weight: 500;
-    margin-top: 2em;
+    // margin-top: 2em;
+  }
+
+  .listing-mls {
+    margin-top: 1em;
   }
 
   .caption-savings {
@@ -435,6 +439,13 @@ section.service {
 
   .caption-price {
     font-weight: 600;
+  }
+
+  .status-sold {
+    display: inline-block;
+    background: $theme-highlight;
+    color: $brand-primary;
+    padding: 1px 4px;
   }
 
   button {
