@@ -7,6 +7,7 @@ var rename = require("gulp-rename");
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 var pkg = require('./package.json');
+var sftp = require('gulp-sftp');
 
 // gulp packages for deploying to AWS
 var fs = require("fs");
@@ -14,6 +15,39 @@ var gzip = require('gulp-gzip');
 var minifyCss = require('gulp-minify-css');
 // var awspublish = require('gulp-awspublish');
 var minifyHTML = require('gulp-minify-html');
+
+gulp.task('push-dev', function () {
+  return gulp.src('dist/**/**/*')
+    .pipe(sftp({
+      auth: 'privateKeyEncrypted',
+      host: 'bwarealty.com',
+      remotePath: '/home/bwarealty/dev/',
+      key: '~/.ssh/bwa_id_rsa',
+      authFile: '.ftppass'
+    }));
+});
+
+gulp.task('push-staging', function () {
+  return gulp.src('dist/**/**/*')
+    .pipe(sftp({
+      auth: 'privateKeyEncrypted',
+      host: 'bwarealty.com',
+      remotePath: '/home/bwarealty/staging/',
+      key: '~/.ssh/bwa_id_rsa',
+      authFile: '.ftppass'
+    }));
+});
+
+gulp.task('push-prod', function () {
+  return gulp.src('dist/**/**/*')
+    .pipe(sftp({
+      auth: 'privateKeyEncrypted',
+      host: 'bwarealty.com',
+      remotePath: '/home/bwarealty/www/',
+      key: '~/.ssh/bwa_id_rsa',
+      authFile: '.ftppass'
+    }));
+});
 
 // parse AWS credentials
 // aws = JSON.parse(fs.readFileSync('./aws.json'));
@@ -30,6 +64,7 @@ gulp.task('deploy', function() {
   gulp.src('./vendor/**').pipe(gulp.dest('./dist/vendor'));
   gulp.src('./*.html').pipe(gulp.dest('./dist'));
   gulp.src('./cgi/*.php').pipe(gulp.dest('./dist/cgi'));
+
   //minify css
   // gulp.src('./dist/css/*.css')
   //   .pipe(minifyCss({compatibility: 'ie8'}))
