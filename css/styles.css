@@ -5893,7 +5893,6 @@ h3,
 .h3 {
   color: #555555;
   font-weight: 400;
-  margin-top: 0;
   text-align: center; }
 
 h4,
@@ -6121,6 +6120,9 @@ section {
     .service .service-item p {
       font-size: 1.0625em;
       text-align: justify; }
+
+.listings h3 {
+  margin-top: 0; }
 
 @media (min-width: 768px) {
   .row-eq-height {

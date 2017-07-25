@@ -65,7 +65,6 @@ h3,
 .h3 {
   color: $gray;
   font-weight: 400;
-  margin-top: 0;
   text-align: center;
 }
 
@@ -383,8 +382,14 @@ section {
 }
 
 //
-//  Listing Grid styles
+// Listings Styles
 //
+
+.listings {
+  h3 {
+    margin-top: 0;
+  }
+}
 
 // set grid boxes to equal height
 
