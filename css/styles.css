@@ -6113,21 +6113,41 @@ section {
     color: #003720;
     text-align: center; }
 
-section.service {
+.service {
   margin-top: 30px; }
-  section.service .service-item {
+  .service .service-item {
     margin-top: 30px;
     text-align: center; }
-    section.service .service-item p {
+    .service .service-item p {
       font-size: 1.0625em;
       text-align: justify; }
+
+@media (min-width: 768px) {
+  .row-eq-height {
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap; }
+  .row-eq-height > .listing-grid-item {
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column; } }
 
 .listing-grid-item {
   margin-bottom: 1em; }
   .listing-grid-item img {
-    width: 100%;
+    max-height: 100%;
     max-width: 100%;
-    max-height: 100%; }
+    width: 100%; }
   .listing-grid-item p {
     line-height: 1.4;
     margin-bottom: 0; }
@@ -6154,9 +6174,9 @@ section.service {
   .listing-grid-item .caption-price {
     font-weight: 600; }
   .listing-grid-item .status-sold {
-    display: inline-block;
     background: #ffe800;
     color: #003720;
+    display: inline-block;
     padding: 1px 4px; }
   .listing-grid-item button {
     bottom: 1.5em;
