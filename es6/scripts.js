@@ -121,10 +121,6 @@ function showDetails (mls) {
 // jQuery Gallery Setup
 
 function setUpGallery() {
-  // $('.flexslider').flexslider({
-  //   animation: "slide"
-  // })
-
   $('#carousel').flexslider({
     animation: "slide",
     controlNav: false,
@@ -262,7 +258,6 @@ $(function() {
     .then((data) => {
       // set global listing object to JSON feed data
       listingsObj = new ListingData()
-
       listingsObj.setData(data.feed.entry)
 
       // get template and render

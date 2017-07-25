@@ -152,22 +152,6 @@ h6,
       color: $brand-primary;
     }
   }
-
-  // .navbar-nav > li > a {
-  //   color: $white;
-  //
-  //   &:hover {
-  //     background-color: $brand-primary;
-  //     color: $theme-highlight;
-  //   }
-  // }
-
-  // .navbar-nav > .active > a,
-  // .navbar-nav > .active > a:hover,
-  // .navbar-nav > .active > a:focus {
-  //   background-color: $white;
-  //   color: $brand-primary;
-  // }
 }
 
 @media(min-width:768px) {
@@ -205,23 +189,7 @@ h6,
         background-color: $white;
         color: $brand-primary;
       }
-
     }
-
-    // .navbar-nav > li > a {
-    //   color: $white;
-    //   // margin-left: .5em;
-    //   margin: .5em 0;
-    //   padding: .5em .75em;
-    // }
-
-    // .navbar-nav > .active > a,
-    // .navbar-nav > .active > a:hover,
-    // .navbar-nav > .active > a:focus {
-    //   background-color: $white;
-    //   color: $brand-primary;
-    // }
-
   }
 }
 
