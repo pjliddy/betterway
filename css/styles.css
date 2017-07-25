@@ -6035,24 +6035,22 @@ h6,
     margin-bottom: 3em; } }
 
 .contact-modal .modal-body {
-  padding: 1.25em; }
+  padding: 1.25em 1.25em .5em; }
+  .contact-modal .modal-body button {
+    margin-right: .5em; }
+  .contact-modal .modal-body button:last-of-type {
+    margin-right: 0; }
 
 form {
   margin: 0; }
   form [class*=" col-"] {
     padding: 0; }
-  form [class*=" col-sm-6"]:first-of-type {
-    padding-right: .75em; }
-  form [class*=" col-sm-6"]:last-of-type {
-    padding-right: .75em; }
 
-legend {
-  border: 0;
-  color: #fff;
-  font-size: 1.25em;
-  letter-spacing: .75px;
-  margin-bottom: .5em;
-  text-align: center; }
+@media (min-width: 768px) {
+  [class*=" col-sm-6"]:first-of-type {
+    padding-right: .75em; }
+  [class*=" col-sm-6"]:last-of-type {
+    padding-left: .75em; } }
 
 .input-group {
   max-width: 100%;
@@ -6063,12 +6061,6 @@ legend {
   background-color: #003720;
   border: #003720;
   color: #fff; }
-
-.form-control, input {
-  font-weight: 300;
-  height: 38px;
-  line-height: 1;
-  padding: 12px; }
 
 .input-group-btn .btn-primary {
   color: #fff;
@@ -6114,14 +6106,6 @@ legend {
     background-color: #ffe800;
     border-color: #ffe800;
     color: #003720; }
-
-@media (min-width: 768px) {
-  legend {
-    border: 0;
-    color: #fff;
-    font-size: 1.25em;
-    font-weight: 500;
-    margin-bottom: .25em; } }
 
 section {
   margin-top: 1.25em; }

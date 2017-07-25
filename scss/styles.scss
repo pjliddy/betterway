@@ -279,7 +279,16 @@ h6,
 }
 
 .contact-modal .modal-body {
-  padding: 1.25em;
+  padding: 1.25em 1.25em .5em;
+
+  button {
+    margin-right: .5em;
+  }
+
+  button:last-of-type {
+    margin-right: 0;
+  }
+
 }
 
 // Form Styles
@@ -290,23 +299,23 @@ form {
   [class*=" col-"] {
     padding: 0;
   }
+}
 
+@media(min-width:768px) {
   [class*=" col-sm-6"]:first-of-type {
     padding-right: .75em;
   }
 
   [class*=" col-sm-6"]:last-of-type {
-    padding-right: .75em;
+    padding-left: .75em;
   }
 }
 
-legend {
-  border: 0;
-  color: $white;
-  font-size: 1.25em;
-  letter-spacing: .75px;
-  margin-bottom: .5em;
-  text-align: center;
+.form-control, input {
+  // font-weight: 300;
+  // height: 38px;
+  // line-height: 1;
+  // padding: 12px;
 }
 
 .input-group {
@@ -319,13 +328,6 @@ legend {
   background-color: $brand-primary;
   border: $brand-primary;
   color: $white;
-}
-
-.form-control, input {
-  font-weight: 300;
-  height: 38px;
-  line-height: 1;
-  padding: 12px;
 }
 
 .input-group-btn .btn-primary{
@@ -346,20 +348,11 @@ legend {
     color: $brand-primary;
   }
 }
-@media(min-width:768px) {
-  form {
-    // margin: 0;
-    // width: 75%;
-  }
 
-  legend {
-    border: 0;
-    color: $white;
-    font-size: 1.25em;
-    font-weight: 500;
-    margin-bottom: .25em;
-  }
+@media(min-width:768px) {
+
 }
+
 // Section styles
 
 section {
