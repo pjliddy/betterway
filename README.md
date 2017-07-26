@@ -1,7 +1,9 @@
 # Betterway Atlanta Realty
 
 [www.bwareatly.com](http://www.bwareatly.com)
+
 [staging.bwareatly.com](http://staging.bwareatly.com)
+
 [dev.bwareatly.com](http://dev.bwareatly.com)
 
 
