@@ -55,7 +55,7 @@ gulp.task('push-prod', function () {
 // var publisher = awspublish.create(aws);
 
 // defining single task with name "deploy"
-gulp.task('deploy', function() {
+gulp.task('build', function() {
   // only copy desired files to dist folder
   gulp.src('./css/**').pipe(gulp.dest('./dist/css'));
   gulp.src('./img/**').pipe(gulp.dest('./dist/img'));
@@ -64,7 +64,6 @@ gulp.task('deploy', function() {
   gulp.src('./vendor/**').pipe(gulp.dest('./dist/vendor'));
   gulp.src('./*.html').pipe(gulp.dest('./dist'));
   gulp.src('./cgi/*.php').pipe(gulp.dest('./dist/cgi'));
-
   //minify css
   // gulp.src('./dist/css/*.css')
   //   .pipe(minifyCss({compatibility: 'ie8'}))
