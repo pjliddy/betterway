@@ -158,22 +158,22 @@ h6,
   .navbar-custom {
     // padding: 14px 8px 0;
 
-    .navbar-brand {
-      .logo-type {
-        display: inline-block;
-        vertical-align: middle;
-      }
-
-      .logo-primary {
-        display: inline;
-        font-size: 1em;
-      }
-
-      .logo-secondary {
-        display: inline;
-        font-size: 1em;
-      }
-    }
+    // .navbar-brand {
+    //   .logo-type {
+    //     display: inline-block;
+    //     vertical-align: middle;
+    //   }
+    //
+    //   .logo-primary {
+    //     display: inline;
+    //     font-size: 1em;
+    //   }
+    //
+    //   .logo-secondary {
+    //     display: inline;
+    //     font-size: 1em;
+    //   }
+    // }
 
     .navbar-nav {
       & > li > a {
@@ -193,6 +193,28 @@ h6,
   }
 }
 
+@media(min-width:992px) {
+  .navbar-custom {
+    // padding: 14px 8px 0;
+
+    .navbar-brand {
+      .logo-type {
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      .logo-primary {
+        display: inline;
+        font-size: 1em;
+      }
+
+      .logo-secondary {
+        display: inline;
+        font-size: 1em;
+      }
+    }
+  }
+}
 //
 //  Hero Area (Jumbotron) Styles
 //

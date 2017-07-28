@@ -6125,15 +6125,6 @@ h6,
     color: #003720; }
 
 @media (min-width: 768px) {
-  .navbar-custom .navbar-brand .logo-type {
-    display: inline-block;
-    vertical-align: middle; }
-  .navbar-custom .navbar-brand .logo-primary {
-    display: inline;
-    font-size: 1em; }
-  .navbar-custom .navbar-brand .logo-secondary {
-    display: inline;
-    font-size: 1em; }
   .navbar-custom .navbar-nav > li > a {
     color: #fff;
     margin: .5em 0;
@@ -6143,6 +6134,17 @@ h6,
   .navbar-custom .navbar-nav > .active > a:focus {
     background-color: #fff;
     color: #003720; } }
+
+@media (min-width: 992px) {
+  .navbar-custom .navbar-brand .logo-type {
+    display: inline-block;
+    vertical-align: middle; }
+  .navbar-custom .navbar-brand .logo-primary {
+    display: inline;
+    font-size: 1em; }
+  .navbar-custom .navbar-brand .logo-secondary {
+    display: inline;
+    font-size: 1em; } }
 
 .jumbotron {
   -moz-background-size: cover;
