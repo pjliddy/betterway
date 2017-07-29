@@ -1,11 +1,13 @@
 'use strict'
 
 Handlebars.registerHelper('savings', function(listing, options) {
+  var price = parseInt(listing.price.replace(/,/g, ''))
+
   if (listing.agentrole.toLowerCase() === 'seller') {
-    var price = parseInt(listing.price.replace(/,/g, ''))
     var savings = (price * .03) - 500
   } else {
-    var savings = parseInt(listing.buyerfee.replace(/,/g, ''))
+    var fee = parseInt(listing.buyerfee.replace(/,/g, ''))
+    var savings = (price * .03) - fee
   }
 
   return savings.toLocaleString()
