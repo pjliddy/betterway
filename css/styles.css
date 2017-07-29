@@ -6701,6 +6701,10 @@ section {
     right: 1.5em; }
   .listing-grid-item .listing-price {
     font-weight: 600; }
+  .listing-grid-item .listing-rooms {
+    margin-top: .5em; }
+  .listing-grid-item .separator {
+    margin: 0 .5em; }
 
 [class*=" imghvr-"] figcaption,
 [class^="imghvr-"] figcaption {

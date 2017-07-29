@@ -97,9 +97,7 @@ function submitContact(data) {
 
 function getDetailData(mls) {
   for (var i = 0; i < listingsObj.data.length; i++) {
-    console.log(listingsObj.data[i]);
     if (listingsObj.data[i].mls == mls) {
-      console.log(mls);
       return listingsObj.data[i];
     }
   }
@@ -215,7 +213,7 @@ function handleEvents() {
 
   // submit contact form
   $('body').on('submit', 'form#contact-form', function (event) {
-    console.log('submit form');
+    // console.log('submit form');
     event.preventDefault();
     var name = $("input#firstName").val() + ' ' + $("input#lastName").val();
     var email = $("input#email").val();
