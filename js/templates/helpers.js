@@ -36,6 +36,11 @@ Handlebars.registerHelper('savings-total', function(context, options) {
     // var price = parseInt(price.replace(/,/g, ''))
     total = total + savings;
   }
-  console.log(total.toLocaleString())
   return total.toLocaleString();
 });
+
+Handlebars.registerHelper('hasHalfBaths', function(halfBaths, options) {
+  if (parseInt(halfBaths) >= 1) {
+    return options.fn(this)
+  }
+})

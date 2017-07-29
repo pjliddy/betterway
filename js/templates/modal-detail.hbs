@@ -52,7 +52,9 @@
             <hr>
             <p><span class="detail-label">Bedrooms: </span>{{data.bedrooms}}</p>
             <p><span class="detail-label">Baths: </span>{{data.bathrooms}}</p>
-            <p><span class="detail-label">Half Baths: </span>{{data.halfbaths}}</p>
+            {{#hasHalfBaths data.halfbaths}}
+              <p><span class="detail-label">Half Baths: </span>{{data.halfbaths}}</p>
+            {{/hasHalfBaths}}
           </div>
 
           <div class="detail-group col-sm-6">
