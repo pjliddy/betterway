@@ -4,12 +4,6 @@
 @import 'variables';
 @import 'mixins';
 
-$screen-ms: 640px;
-$screen-ms-min: $screen-ms; // overrides default (has to be before import)
-// $screen-xs-max: ($screen-ms-min - 1); // Include bootstrap
-
-// @import '../node_modules/bootstrap-sass/assets/stylesheets/bootstrap'; // $screen-ms-max (defined after import to read $screen-sm)
-
 @import '../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
 
 @import 'bootstrap-grid-ms';
