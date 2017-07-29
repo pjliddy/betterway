@@ -14,7 +14,7 @@
           {{!-- </div> --}}
           <div class="listing-caption">
             <div class="listing-caption-right col-sm-6">
-              <p class="caption-savings">{{#save-label listing.status}}{{/save-label}}${{#savings listing.price}}{{/savings}}</p>
+              <p class="caption-savings">{{#save-label listing.status}}{{/save-label}}${{#savings listing}}{{/savings}}</p>
               {{!-- <p class="caption-location">{{listing.city}}, {{listing.state}}</p> --}}
               <p class="caption-type">{{listing.type}}</p>
             </div>
@@ -34,7 +34,7 @@
             </div>
 
             <div class="listing-caption-right col-sm-6">
-              <p class="listing-savings">{{#save-label listing.status}}{{/save-label}}${{#savings listing.price}}{{/savings}}</p>
+              <p class="listing-savings">{{#save-label listing.status}}{{/save-label}}${{#savings listing}}{{/savings}}</p>
               <p class="listing-type">{{listing.type}}</p>
             </div>
 
