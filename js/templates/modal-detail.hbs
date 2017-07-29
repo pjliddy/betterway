@@ -13,7 +13,10 @@
           <ul class="slides">
             {{#each data.images as |slide|}}
             <li>
-              <img src="img/mls/{{../data.mls}}/{{slide}}" />
+              {{!--
+              https://s3.amazonaws.com/bwarealty/mls/5678528/5678528-1.jpg
+               --}}
+              <img src="https://s3.amazonaws.com/bwarealty/mls/{{../data.mls}}/{{slide}}" />
             </li>
             {{/each}}
           </ul>
