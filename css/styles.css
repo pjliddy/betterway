@@ -5833,11 +5833,11 @@ button.close {
   padding-left: 15px;
   padding-right: 15px; }
 
-@media (min-width: 640px) and (max-width: 767px) {
+@media (min-width: 480px) and (max-width: 767px) {
   .hidden-xs {
     display: block !important; } }
 
-@media (min-width: 640px) {
+@media (min-width: 480px) {
   .col-ms-1, .col-ms-2, .col-ms-3, .col-ms-4, .col-ms-5, .col-ms-6, .col-ms-7, .col-ms-8, .col-ms-9, .col-ms-10, .col-ms-11, .col-ms-12 {
     float: left; }
   .col-ms-1 {
@@ -6275,7 +6275,7 @@ button.close {
 .visible-ms-inline-block {
   display: none !important; }
 
-@media (max-width: 639px) {
+@media (max-width: 479px) {
   .visible-xs {
     display: block !important; }
   table.visible-xs {
@@ -6286,19 +6286,19 @@ button.close {
   td.visible-xs {
     display: table-cell !important; } }
 
-@media (max-width: 639px) {
+@media (max-width: 479px) {
   .visible-xs-block {
     display: block !important; } }
 
-@media (max-width: 639px) {
+@media (max-width: 479px) {
   .visible-xs-inline {
     display: inline !important; } }
 
-@media (max-width: 639px) {
+@media (max-width: 479px) {
   .visible-xs-inline-block {
     display: inline-block !important; } }
 
-@media (min-width: 640px) and (max-width: 767px) {
+@media (min-width: 480px) and (max-width: 767px) {
   .visible-ms {
     display: block !important; }
   table.visible-ms {
@@ -6309,23 +6309,23 @@ button.close {
   td.visible-ms {
     display: table-cell !important; } }
 
-@media (min-width: 640px) and (max-width: 767px) {
+@media (min-width: 480px) and (max-width: 767px) {
   .visible-ms-block {
     display: block !important; } }
 
-@media (min-width: 640px) and (max-width: 767px) {
+@media (min-width: 480px) and (max-width: 767px) {
   .visible-ms-inline {
     display: inline !important; } }
 
-@media (min-width: 640px) and (max-width: 767px) {
+@media (min-width: 480px) and (max-width: 767px) {
   .visible-ms-inline-block {
     display: inline-block !important; } }
 
-@media (max-width: 639px) {
+@media (max-width: 479px) {
   .hidden-xs {
     display: none !important; } }
 
-@media (min-width: 640px) and (max-width: 767px) {
+@media (min-width: 480px) and (max-width: 767px) {
   .hidden-ms {
     display: none !important; } }
 
