@@ -62,8 +62,14 @@ gulp.task('build', function() {
   // gulp.src('./pdf/**').pipe(gulp.dest('./dist/pdf'));
   gulp.src('./js/**').pipe(gulp.dest('./dist/js'));
   gulp.src('./vendor/**').pipe(gulp.dest('./dist/vendor'));
-  gulp.src('./*.html').pipe(gulp.dest('./dist'));
   gulp.src('./cgi/*.php').pipe(gulp.dest('./dist/cgi'));
+  gulp.src('./*.html').pipe(gulp.dest('./dist'));
+  gulp.src('./*.png').pipe(gulp.dest('./dist'));
+  gulp.src('./*.ico').pipe(gulp.dest('./dist'));
+  gulp.src('./*.svg').pipe(gulp.dest('./dist'));
+  gulp.src('./browserconfig.xml').pipe(gulp.dest('./dist'));
+  gulp.src('./manifest.json').pipe(gulp.dest('./dist'));
+  gulp.src('./*.html').pipe(gulp.dest('./dist'));
   //minify css
   // gulp.src('./dist/css/*.css')
   //   .pipe(minifyCss({compatibility: 'ie8'}))
