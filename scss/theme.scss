@@ -86,7 +86,9 @@ h6,
   .navbar-brand {
     color: $white;
     display: inline-block;
-    font-family: 'Petit Formal Script', cursive;
+    // font-family: 'Petit Formal Script', cursive;
+    font-family: $font-family-base;
+    font-weight: 400;
     height: 100%;
 
     img {
@@ -98,19 +100,20 @@ h6,
 
     .logo-type {
       display: inline-block;
+      font-size: 1em;
       line-height: .925;
       vertical-align: middle;
     }
 
-    .logo-primary {
-      display: inline-block;
-      font-size: 1em;
-    }
-
-    .logo-secondary {
-      display: inline-block;
-      font-size: .625em;
-    }
+    // .logo-primary {
+    //   // display: inline-block;
+    //   font-size: 1em;
+    // }
+    //
+    // .logo-secondary {
+    //   // display: inline-block;
+    //   font-size: .625em;
+    // }
   }
 
   .navbar-toggle,
