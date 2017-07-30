@@ -97,7 +97,9 @@ function submitContact(data) {
 
 function getDetailData(mls) {
   for (var i = 0; i < listingsObj.data.length; i++) {
+    console.log(listingsObj.data[i]);
     if (listingsObj.data[i].mls == mls) {
+      console.log(mls);
       return listingsObj.data[i];
     }
   }
@@ -178,7 +180,7 @@ function handleEvents() {
   $('a.page-scroll').bind('click', function (event) {
     var $anchor = $(this);
     $('html, body').stop().animate({
-      scrollTop: $($anchor.attr('href')).offset().top - 75
+      scrollTop: $($anchor.attr('href')).offset().top - 92
     }, 800, 'easeInOutExpo');
     event.preventDefault();
   });
@@ -186,7 +188,7 @@ function handleEvents() {
   // Highlight the top nav as page scrolls
   $('body').scrollspy({
     target: '.navbar-fixed-top',
-    offset: 75
+    offset: 92
   });
 
   // Close the Responsive Menu on Menu Item Click
@@ -197,7 +199,7 @@ function handleEvents() {
   // Offset for Main Navigation
   $('#mainNav').affix({
     offset: {
-      top: 75
+      top: 92
     }
   });
 
@@ -213,7 +215,7 @@ function handleEvents() {
 
   // submit contact form
   $('body').on('submit', 'form#contact-form', function (event) {
-    // console.log('submit form');
+    console.log('submit form');
     event.preventDefault();
     var name = $("input#firstName").val() + ' ' + $("input#lastName").val();
     var email = $("input#email").val();
@@ -264,4 +266,4 @@ $(function () {
     return console.log('data feed is not available');
   });
 });
-//# sourceMappingURL=/Users/pliddy/Documents/dev/betterway/scripts.js.map
+//# sourceMappingURL=/Users/pliddy/Documents/dev/bwarealty/scripts.js.map

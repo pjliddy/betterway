@@ -8,19 +8,14 @@
     <div class="col-ms-6 col-md-4 listing-grid-item">
       {{!-- <div class="listing-grid-item"> --}}
         <figure class="imghvr-flip-horiz">
-          {{!-- <div class="img-wrapper"> --}}
-          <img class="hvr-img img-responsive" src="img/mls/{{listing.mls}}/{{listing.images.[0]}}" >
-
-          {{!-- </div> --}}
+            <img class="hvr-img img-responsive" src="img/mls/{{listing.mls}}/{{listing.images.[0]}}" >
           <div class="listing-caption">
             <div class="listing-caption-right col-sm-6">
               <p class="caption-savings">{{#save-label listing.status}}{{/save-label}}${{#savings listing}}{{/savings}}</p>
-              {{!-- <p class="caption-location">{{listing.city}}, {{listing.state}}</p> --}}
               <p class="caption-type">{{listing.type}}</p>
             </div>
             <div class="listing-caption-left col-sm-6">
               <p class="caption-price">${{listing.price}}</p>
-              {{!-- <p class="caption-status">{{listing.status}}</p> --}}
               {{#status-label listing.status}}{{/status-label}}
             </div>
             <div class="clearfix"></div>

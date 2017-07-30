@@ -470,10 +470,21 @@ section {
 .listing-grid-item {
   margin-bottom: 1em;
 
+  .img-wrapper {
+    // overflow:hidden;
+    // max-height: 240px;
+    // // width: 100%;
+  }
+
   img {
-    max-height: 100%;
-    max-width: 100%;
-    width: 100%;
+    // // position: absolute;
+    // // max-width: 100%;
+    // // max-height: 100%;
+    // // width: 100%
+    // // max-width: 100%;
+    // // overflow: hidden;
+    // height: auto;
+    // width: 100%;
   }
 
   p {
@@ -557,6 +568,12 @@ section {
   background-color: $white;
   color: $brand-primary;
 }
+
+// .hvr-img {
+//   min-height: 100%;
+//   min-width: 100%;
+//   overflow: hidden;
+// }
 
 // Listing Detail Styles
 
