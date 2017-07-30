@@ -287,13 +287,19 @@ h6,
     }
 
     .phone-number {
-      font-size: 2.5em;
+      font-size: 3.5em;
       line-height: 1.2;
     }
 
     .contact-btn {
       margin-bottom: 3em;
     }
+  }
+}
+
+@media(min-width:992px) {
+  .jumbotron {
+    padding: 4em 0 5em;
   }
 }
 

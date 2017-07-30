@@ -6541,10 +6541,14 @@ h6,
     font-weight: 500;
     margin: 0; }
   .jumbotron .phone-number {
-    font-size: 2.5em;
+    font-size: 3.5em;
     line-height: 1.2; }
   .jumbotron .contact-btn {
     margin-bottom: 3em; } }
+
+@media (min-width: 992px) {
+  .jumbotron {
+    padding: 4em 0 5em; } }
 
 .contact-modal .modal-body {
   padding: 1.25em 1.25em .5em; }
