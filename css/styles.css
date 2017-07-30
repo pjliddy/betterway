@@ -6505,7 +6505,7 @@ h6,
     color: #ffe800;
     font-weight: 500;
     letter-spacing: 1px;
-    margin: 1em 0 .5em; }
+    margin-bottom: .5em; }
   .jumbotron h2 {
     color: #fff;
     font-size: 1.375em;
@@ -6526,6 +6526,11 @@ h6,
   .jumbotron a[href^="tel"] {
     color: #ffe800;
     text-decoration: none; }
+
+@media (min-width: 480px) {
+  .jumbotron {
+    padding-bottom: 3.5em;
+    padding-top: 3em; } }
 
 @media (min-width: 768px) {
   .jumbotron h1 {
@@ -6633,10 +6638,32 @@ section {
   margin-top: 30px; }
   .service .service-item {
     margin-top: 30px;
-    text-align: center; }
+    text-align: center;
+    overflow: hidden; }
+    .service .service-item .service-icon {
+      text-align: center;
+      overflow: hidden; }
+      .service .service-item .service-icon .fa-stack {
+        margin: 0 auto; }
+    .service .service-item .service-copy {
+      overflow: hidden; }
     .service .service-item p {
       font-size: 1.0625em;
       text-align: justify; }
+
+@media (min-width: 480px) {
+  .service .service-item {
+    margin-top: 0; }
+    .service .service-item .service-icon {
+      padding-top: 60px;
+      text-align: center; }
+    .service .service-item p {
+      margin-bottom: 30px; } }
+
+@media (min-width: 640px) {
+  .service .service-item .service-icon {
+    padding-top: 60px;
+    text-align: center; } }
 
 .listings h3 {
   margin-top: 0; }
