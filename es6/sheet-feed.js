@@ -1,9 +1,27 @@
 'use strict'
 
+// window.location.href
+
+const dev = '1oDO9zkpaK1wUSynqYgpQzIs3BJVZN9H19DtwQXBjNfw'
+const staging = '1nz4bJDJdKXyGvMbzfAYol6TpwfsVyoeKWKLFFjYa1Hw'
+const prod = '1oG10rZemC5R6-EcE8bLUofAMoJaqnsS-lgKxGUCuW2c'
+
 // global listing data object constructor
 
 const ListingData = function ( ) {
-   data: [ ]
+  this.getFeed = function () {
+    if (window.location.href === 'http://www.bwarealty.com/') {
+      return prod
+    } else if (window.location.href === 'http://staging.bwarealty.com/') {
+      return staging
+    } else {
+      return dev
+    }
+  }
+
+  // this.data = []
+  this.feed = this.getFeed()
+  this.url = 'https://spreadsheets.google.com/feeds/list/' + this.feed + '/od6/public/values?alt=json'
  }
 
 // initialize data from Google Sheets JSON feed

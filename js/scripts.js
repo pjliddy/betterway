@@ -3,9 +3,10 @@
 // set path to Google Sheet with listing data (JSON feed)
 // const listingPath = "https://spreadsheets.google.com/feeds/list/1hzXzXdK1fqgaZC_eQdxLRFkUOHlW7puy9w9CPrNl5uE/od6/public/values?alt=json"
 
-var listingPath = "https://spreadsheets.google.com/feeds/list/1oG10rZemC5R6-EcE8bLUofAMoJaqnsS-lgKxGUCuW2c/od6/public/values?alt=json";
+// const listingPath = "https://spreadsheets.google.com/feeds/list/1oG10rZemC5R6-EcE8bLUofAMoJaqnsS-lgKxGUCuW2c/od6/public/values?alt=json"
 
 // initialize global listing data object
+
 var listingsObj = {};
 
 //
@@ -251,9 +252,10 @@ $(function () {
   handleEvents();
 
   // get data from JSON feed and wait for promise to be returned
-  getListingData(listingPath).then(function (data) {
+  listingsObj = new ListingData();
+
+  getListingData(listingsObj.url).then(function (data) {
     // set global listing object to JSON feed data
-    listingsObj = new ListingData();
     listingsObj.setData(data.feed.entry);
 
     // get template and render

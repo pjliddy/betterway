@@ -1,9 +1,27 @@
 'use strict';
 
+// window.location.href
+
+var dev = '1oDO9zkpaK1wUSynqYgpQzIs3BJVZN9H19DtwQXBjNfw';
+var staging = '1nz4bJDJdKXyGvMbzfAYol6TpwfsVyoeKWKLFFjYa1Hw';
+var prod = '1oG10rZemC5R6-EcE8bLUofAMoJaqnsS-lgKxGUCuW2c';
+
 // global listing data object constructor
 
 var ListingData = function ListingData() {
-  data: [];
+  this.getFeed = function () {
+    if (window.location.href === 'http://www.bwarealty.com/') {
+      return prod;
+    } else if (window.location.href === 'http://staging.bwarealty.com/') {
+      return staging;
+    } else {
+      return dev;
+    }
+  };
+
+  // this.data = []
+  this.feed = this.getFeed();
+  this.url = 'https://spreadsheets.google.com/feeds/list/' + this.feed + '/od6/public/values?alt=json';
 };
 
 // initialize data from Google Sheets JSON feed
@@ -41,4 +59,4 @@ ListingData.prototype.setData = function (feedData) {
     _this.data.push(newObj);
   });
 };
-//# sourceMappingURL=/Users/pliddy/Documents/dev/betterway/sheet-feed.js.map
+//# sourceMappingURL=/Users/pliddy/Documents/dev/bwarealty/sheet-feed.js.map
