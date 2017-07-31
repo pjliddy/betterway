@@ -6717,9 +6717,11 @@ section {
     font-weight: 600; }
   .listing-grid-item .status-sold {
     background: #ffe800;
+    border-radius: 4px;
     color: #003720;
     display: inline-block;
-    padding: 1px 4px; }
+    font-weight: 400;
+    padding: 1px 6px; }
   .listing-grid-item button {
     bottom: 1.5em;
     position: absolute;

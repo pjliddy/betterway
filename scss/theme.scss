@@ -533,9 +533,11 @@ section {
 
   .status-sold {
     background: $theme-highlight;
+    border-radius: 4px;
     color: $brand-primary;
     display: inline-block;
-    padding: 1px 4px;
+    font-weight: 400;
+    padding: 1px 6px;
   }
 
   button {
