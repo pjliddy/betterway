@@ -98,9 +98,7 @@ function submitContact (data) {
 
 function getDetailData (mls) {
   for (let i = 0; i < listingsObj.data.length; i++) {
-    console.log(listingsObj.data[i])
     if (listingsObj.data[i].mls == mls) {
-      console.log(mls)
       return listingsObj.data[i]
     }
   }
