@@ -28,7 +28,12 @@ const changed = require('gulp-changed')
 // gulp packages for deploying to ftp
 var gzip = require('gulp-gzip');
 
-const dist = 'dist/**';
+const distSrc = 'dist/**',
+      sassSrc = 'scss/*.scss',
+      cssSrc = 'css/*.css',
+      jsSrc = 'js/**/*.js'
+
+const distDest = 'dist'
 
 // Run everything
 gulp.task('default', ['sass', 'minify-css', 'minify-js', 'copy-vendor']);
@@ -37,12 +42,12 @@ gulp.task('default', ['sass', 'minify-css', 'minify-js', 'copy-vendor']);
 gulp.task('serve', ['browserSync', 'sass', 'minify-css', 'minify-js'], function() {
   gutil.log('Execute: serve')
 
-  gulp.watch('scss/*.scss', ['sass']);
-  gulp.watch('css/*.css', ['minify-css']);
-  gulp.watch('js/*.js', ['minify-js']);
+  gulp.watch(sassSrc, ['sass']);
+  gulp.watch(cssSrc, ['minify-css']);
+  gulp.watch('js/**/*.js', ['minify-js']);
   // Reloads the browser whenever HTML or JS files change
   gulp.watch('*.html', browserSync.reload);
-  gulp.watch('js/**/*.js', browserSync.reload);
+  gulp.watch(jsSrc, browserSync.reload);
 });
 
 // Configure the browserSync task
@@ -51,7 +56,7 @@ gulp.task('browserSync', function() {
 
   browserSync.init({
     server: {
-      baseDir: ''
+      baseDir: 'dist'
     },
   })
 })
@@ -92,12 +97,11 @@ gulp.task('minify-js', function() {
 
   return gulp.src('js/**/*.js')
     .pipe(babel())
-    .pipe(gulp.dest('dist'))
     .pipe(uglify())
     .pipe(rename({
       suffix: '.min'
     }))
-    .pipe(gulp.dest('js'))
+    .pipe(gulp.dest('./dist/js'))
     .pipe(browserSync.reload({
       stream: true
     }))
@@ -130,8 +134,8 @@ gulp.task('copy-vendor', function() {
 gulp.task('push-dev', function () {
   gutil.log('Execute: push-dev');
 
-  return gulp.src(dist)
-    .pipe(changed(dist))
+  return gulp.src(distSrc)
+    .pipe(changed(distSrc))
     // .pipe(gulp.dest(dist))
     .pipe(sftp({
       auth: 'privateKeyEncrypted',
