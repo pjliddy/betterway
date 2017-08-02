@@ -2,41 +2,123 @@
 
 // default gulp package
 const gulp = require('gulp')
-const babel = require("gulp-babel")
-const gutil = require('gulp-util');
+
+// gulp utilities
+const concat = require('gulp-concat')
+const gutil = require('gulp-util')
+const rename = require("gulp-rename")
 
 // gulp compile packages
 const sass = require('gulp-sass')
 const cleanCSS = require('gulp-clean-css')
-const minifyCss = require('gulp-minify-css');
 const minifyHTML = require('gulp-minify-html');
+const babel = require("gulp-babel")
 const uglify = require('gulp-uglify')
 
 // gulp server packages
 const browserSync = require('browser-sync').create()
 
 // gulp file transfer packages
-const sftp = require('gulp-sftp')
+// const sftp = require('gulp-sftp')
 
 // unsorted packages
-const header = require('gulp-header')
-const rename = require("gulp-rename")
-const concat = require('gulp-concat')
-const pkg = require('./package.json')
-const changed = require('gulp-changed')
+// const header = require('gulp-header')
+// const pkg = require('./package.json')
+// const changed = require('gulp-changed')
 
 // gulp packages for deploying to ftp
-var gzip = require('gulp-gzip');
+// var gzip = require('gulp-gzip');
 
-const distSrc = 'dist/**',
-      sassSrc = 'scss/*.scss',
-      cssSrc = 'css/*.css',
-      jsSrc = 'js/**/*.js'
+// const distSrc = 'dist/**'
+// const sassSrc = 'scss/*.scss'
+// const cssSrc = 'css/*.css'
+// const jsSrc = 'js/**/*.js'
 
-const distDest = 'dist'
+
+// path variables
+const distDest = 'dist/'
+
+const htmlSrc = '*.html'
+const htmlDest = distDest
+
+const hbsSrc = 'js/templates/*.hbs'
+const hbsDest = distDest + 'js/templates/'
+
+const sassSrc = 'scss/styles.scss'
+const sassDest = 'css/'
+const sassOutput = 'styles.css'
+
+const cssDest = 'dist/css'
+
+const jsSrc = 'js/**/*.js'
+const jsDest = './dist/js'
 
 // Run everything
-gulp.task('default', ['sass', 'minify-css', 'minify-js', 'copy-vendor']);
+gulp.task('default', ['minify-html', 'minify-handlebars', 'sass', 'minify-css', 'minify-js', 'copy-vendor'])
+
+// Compiles SCSS files from /scss into /css
+gulp.task('sass', function() {
+  return gulp.src(sassSrc)
+    .pipe(sass())
+    .pipe(concat(sassOutput))
+    .pipe(gulp.dest(sassDest))
+})
+
+// Minify compiled CSS into dist directory
+gulp.task('minify-css', ['sass'], function() {
+  return gulp.src(['css/*.css', '!css/*.min.css'])
+    .pipe(cleanCSS({
+      compatibility: 'ie8'
+    }))
+    .pipe(rename({
+      suffix: '.min'
+    }))
+    .pipe(gulp.dest(cssDest))
+    .pipe(browserSync.reload({
+      stream: true
+    }))
+})
+
+// Minify html into dist directory
+gulp.task('minify-html', function() {
+  return gulp.src(htmlSrc)
+    .pipe(minifyHTML({ conditionals: true, spare:true}))
+    .pipe(gulp.dest(htmlDest))
+    .pipe(browserSync.reload({
+      stream: true
+    }))
+})
+
+// Minify handlebars into dist directory
+gulp.task('minify-handlebars', function() {
+  return gulp.src(hbsSrc)
+    .pipe(minifyHTML({ conditionals: true, spare:true}))
+    .pipe(gulp.dest(hbsDest))
+    .pipe(browserSync.reload({
+      stream: true
+    }))
+})
+
+// Minify JS
+gulp.task('minify-js', function() {
+  return gulp.src(jsSrc)
+    .pipe(babel())
+    .pipe(uglify())
+    .pipe(rename({
+      suffix: '.min'
+    }))
+    .pipe(gulp.dest(jsDest))
+    .pipe(browserSync.reload({
+      stream: true
+    }))
+});
+
+
+//
+// NOT REFACTORED YET
+//
+
+
 
 // Run development server task with browserSync locally on port 3000
 gulp.task('serve', ['browserSync', 'sass', 'minify-css', 'minify-js'], function() {
@@ -45,7 +127,8 @@ gulp.task('serve', ['browserSync', 'sass', 'minify-css', 'minify-js'], function(
   gulp.watch(sassSrc, ['sass']);
   gulp.watch(cssSrc, ['minify-css']);
   gulp.watch('js/**/*.js', ['minify-js']);
-  // Reloads the browser whenever HTML or JS files change
+
+  // Reload the browser whenever HTML or JS files change
   gulp.watch('*.html', browserSync.reload);
   gulp.watch(jsSrc, browserSync.reload);
 });
@@ -62,50 +145,20 @@ gulp.task('browserSync', function() {
 })
 
 // Compiles SCSS files from /scss into /css
-gulp.task('sass', function() {
-  gutil.log('Execute: sass')
+// gulp.task('sass', function() {
+//   gutil.log('Execute: sass')
+//
+//   return gulp.src('scss/styles.scss')
+//     .pipe(sass())
+//     .pipe(concat('styles.css'))
+//     .pipe(gulp.dest('./css/'))
+//     .pipe(browserSync.reload({
+//       stream: true
+//     }))
+// });
 
-  return gulp.src('scss/styles.scss')
-    .pipe(sass())
-    .pipe(concat('styles.css'))
-    .pipe(gulp.dest('./css/'))
-    .pipe(browserSync.reload({
-      stream: true
-    }))
-});
 
-// Minify compiled CSS
-gulp.task('minify-css', ['sass'], function() {
-  gutil.log('Execute: minify-css')
 
-  return gulp.src('css/styles.css')
-    .pipe(cleanCSS({
-      compatibility: 'ie8'
-    }))
-    .pipe(rename({
-      suffix: '.min'
-    }))
-    .pipe(gulp.dest('css'))
-    .pipe(browserSync.reload({
-      stream: true
-    }))
-});
-
-// Minify JS
-gulp.task('minify-js', function() {
-  gutil.log('Execute: minify-js')
-
-  return gulp.src('js/**/*.js')
-    .pipe(babel())
-    .pipe(uglify())
-    .pipe(rename({
-      suffix: '.min'
-    }))
-    .pipe(gulp.dest('./dist/js'))
-    .pipe(browserSync.reload({
-      stream: true
-    }))
-});
 
 // Copy vendor libraries from /node_modules into /vendor
 gulp.task('copy-vendor', function() {
@@ -165,6 +218,7 @@ gulp.task('build', function() {
   gulp.src('./browserconfig.xml').pipe(gulp.dest('./dist'));
   gulp.src('./manifest.json').pipe(gulp.dest('./dist'));
   gulp.src('./*.html').pipe(gulp.dest('./dist'));
+
 
   //minify css
   // gulp.src('./dist/css/*.css')
