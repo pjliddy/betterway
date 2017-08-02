@@ -81,7 +81,6 @@ gulp.task('default', [
   'deploy-vendor'
 ])
 
-
 // Run development server task with browserSync locally on port 3000
 gulp.task('serve', ['browserSync', 'minify-html',
 'minify-handlebars', 'minify-css', 'minify-js', 'copy-images', 'copy-cgi', 'copy-favicons', 'deploy-vendor'], function() {
@@ -226,7 +225,6 @@ gulp.task('copy-vendor', function() {
     ])
     .pipe(gulp.dest('vendor/font-awesome'))
 })
-
 
 
 
