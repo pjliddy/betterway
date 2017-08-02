@@ -1,5 +1,9 @@
 'use strict'
 
+/*
+ *  Required Gulp Packages
+ */
+
 // default gulp package
 const gulp = require('gulp')
 
@@ -7,6 +11,7 @@ const gulp = require('gulp')
 const concat = require('gulp-concat')
 const gutil = require('gulp-util')
 const rename = require("gulp-rename")
+const changed = require('gulp-changed')
 
 // gulp compile packages
 const sass = require('gulp-sass')
@@ -24,18 +29,16 @@ const browserSync = require('browser-sync').create()
 // unsorted packages
 // const header = require('gulp-header')
 // const pkg = require('./package.json')
-// const changed = require('gulp-changed')
 
 // gulp packages for deploying to ftp
 // var gzip = require('gulp-gzip');
 
-// const distSrc = 'dist/**'
-// const sassSrc = 'scss/*.scss'
-// const cssSrc = 'css/*.css'
-// const jsSrc = 'js/**/*.js'
 
 
-// path variables
+/*
+ *  Variable Declarations
+ */
+
 const distDest = 'dist/'
 
 const htmlSrc = '*.html'
@@ -48,85 +51,45 @@ const sassSrc = 'scss/styles.scss'
 const sassDest = 'css/'
 const sassOutput = 'styles.css'
 
+const cssSrc = sassDest + '*.css'
 const cssDest = 'dist/css'
 
 const jsSrc = 'js/**/*.js'
 const jsDest = './dist/js'
 
+const faviconSrc = ['./*.png', './*.ico', './*.svg', './browserconfig.xml', './manifest.json']
+const cgiSrc = 'cgi/*.php'
+const cgiDest = distDest + 'cgi/'
+const imgSrc = ['img/*.png', 'img/*.jpg', 'img/*.gif']
+const imgDest = distDest + 'img/'
+
+
+/*
+ *  Global Tasks
+ */
+
 // Run everything
-gulp.task('default', ['minify-html', 'minify-handlebars', 'sass', 'minify-css', 'minify-js', 'copy-vendor'])
-
-// Compiles SCSS files from /scss into /css
-gulp.task('sass', function() {
-  return gulp.src(sassSrc)
-    .pipe(sass())
-    .pipe(concat(sassOutput))
-    .pipe(gulp.dest(sassDest))
-})
-
-// Minify compiled CSS into dist directory
-gulp.task('minify-css', ['sass'], function() {
-  return gulp.src(['css/*.css', '!css/*.min.css'])
-    .pipe(cleanCSS({
-      compatibility: 'ie8'
-    }))
-    .pipe(rename({
-      suffix: '.min'
-    }))
-    .pipe(gulp.dest(cssDest))
-    .pipe(browserSync.reload({
-      stream: true
-    }))
-})
-
-// Minify html into dist directory
-gulp.task('minify-html', function() {
-  return gulp.src(htmlSrc)
-    .pipe(minifyHTML({ conditionals: true, spare:true}))
-    .pipe(gulp.dest(htmlDest))
-    .pipe(browserSync.reload({
-      stream: true
-    }))
-})
-
-// Minify handlebars into dist directory
-gulp.task('minify-handlebars', function() {
-  return gulp.src(hbsSrc)
-    .pipe(minifyHTML({ conditionals: true, spare:true}))
-    .pipe(gulp.dest(hbsDest))
-    .pipe(browserSync.reload({
-      stream: true
-    }))
-})
-
-// Minify JS
-gulp.task('minify-js', function() {
-  return gulp.src(jsSrc)
-    .pipe(babel())
-    .pipe(uglify())
-    .pipe(rename({
-      suffix: '.min'
-    }))
-    .pipe(gulp.dest(jsDest))
-    .pipe(browserSync.reload({
-      stream: true
-    }))
-});
-
-
-//
-// NOT REFACTORED YET
-//
-
+gulp.task('default', [
+  'minify-html',
+  'minify-handlebars',
+  // 'sass',
+  'minify-css',
+  'minify-js',
+  'copy-images',
+  'copy-cgi',
+  'copy-favicons',
+  'deploy-vendor'
+])
 
 
 // Run development server task with browserSync locally on port 3000
-gulp.task('serve', ['browserSync', 'sass', 'minify-css', 'minify-js'], function() {
+gulp.task('serve', ['browserSync', 'minify-html',
+'minify-handlebars', 'minify-css', 'minify-js', 'copy-images', 'copy-cgi', 'copy-favicons', 'deploy-vendor'], function() {
   gutil.log('Execute: serve')
 
   gulp.watch(sassSrc, ['sass']);
   gulp.watch(cssSrc, ['minify-css']);
-  gulp.watch('js/**/*.js', ['minify-js']);
+  gulp.watch(jsSrc, ['minify-js']);
 
   // Reload the browser whenever HTML or JS files change
   gulp.watch('*.html', browserSync.reload);
@@ -144,26 +107,109 @@ gulp.task('browserSync', function() {
   })
 })
 
-// Compiles SCSS files from /scss into /css
-// gulp.task('sass', function() {
-//   gutil.log('Execute: sass')
+/*
+ *  Compile & Minify Tasks
+ */
+
+// Compile SCSS files from to css/
+gulp.task('sass', function() {
+  return gulp.src(sassSrc)
+  .pipe(sass())
+  .pipe(concat(sassOutput))
+  .pipe(changed(sassDest))
+  .pipe(gulp.dest(sassDest))
+})
+
+// Minify compiled CSS to dist/
+gulp.task('minify-css', ['sass'], function() {
+  return gulp.src(['css/*.css', '!css/*.min.css'])
+    .pipe(cleanCSS({
+      compatibility: 'ie8'
+    }))
+    .pipe(rename({
+      suffix: '.min'
+    }))
+    .pipe(changed(cssDest))
+    .pipe(gulp.dest(cssDest))
+    .pipe(browserSync.reload({
+      stream: true
+    }))
+})
+
+// Minify html to dist/
+gulp.task('minify-html', function() {
+  return gulp.src(htmlSrc)
+    .pipe(minifyHTML({ conditionals: true, spare:true}))
+    .pipe(changed(htmlDest))
+    .pipe(gulp.dest(htmlDest))
+    .pipe(browserSync.reload({
+      stream: true
+    }))
+})
+
+// Minify handlebars to dist/
+gulp.task('minify-handlebars', function() {
+  return gulp.src(hbsSrc)
+    .pipe(minifyHTML({ conditionals: true, spare:true}))
+    .pipe(changed(hbsDest))
+    .pipe(gulp.dest(hbsDest))
+    .pipe(browserSync.reload({
+      stream: true
+    }))
+})
+
+// Minify JS to dist/
+gulp.task('minify-js', function() {
+  return gulp.src(jsSrc)
+    .pipe(babel())
+    .pipe(uglify())
+    .pipe(rename({
+      suffix: '.min'
+    }))
+    .pipe(changed(jsDest))
+    .pipe(gulp.dest(jsDest))
+    .pipe(browserSync.reload({
+      stream: true
+    }))
+});
+
+/*
+ *  File Copy Tasks
+ */
+
+// Copy favicons to dist/
+gulp.task('copy-favicons', function() {
+  return gulp.src(faviconSrc)
+    .pipe(changed(distDest))
+    .pipe(gulp.dest(distDest))
+})
+
+// Copy cgi contents to dist/
+gulp.task('copy-cgi', function() {
+  return gulp.src(cgiSrc)
+    .pipe(changed(cgiDest))
+    .pipe(gulp.dest(cgiDest))
+})
+
+// Copy images to dist/
+gulp.task('copy-images', function() {
+  return gulp.src(imgSrc)
+    .pipe(changed(imgDest))
+    .pipe(gulp.dest(imgDest))
+})
+
+// Deploy vendor directory to dist/
+gulp.task('deploy-vendor', function() {
+  return gulp.src('vendor/**/*')
+    .pipe(changed(distDest + 'vendor'))
+    .pipe(gulp.dest(distDest + 'vendor'))
+})
 //
-//   return gulp.src('scss/styles.scss')
-//     .pipe(sass())
-//     .pipe(concat('styles.css'))
-//     .pipe(gulp.dest('./css/'))
-//     .pipe(browserSync.reload({
-//       stream: true
-//     }))
-// });
-
-
-
+// NOT REFACTORED YET
+//
 
 // Copy vendor libraries from /node_modules into /vendor
 gulp.task('copy-vendor', function() {
-  gutil.log('Execute: copy-vendor')
-
   gulp.src(['node_modules/bootstrap/dist/**/*', '!**/npm.js', '!**/bootstrap-theme.*', '!**/*.map'])
     .pipe(gulp.dest('vendor/bootstrap'))
 
