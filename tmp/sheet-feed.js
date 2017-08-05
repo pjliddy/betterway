@@ -8,35 +8,35 @@ const prod = '1oG10rZemC5R6-EcE8bLUofAMoJaqnsS-lgKxGUCuW2c'
 
 // global listing data object constructor
 
-const ListingData = function ( ) {
-  this.getFeed = function () {
-    if (window.location.href === 'http://www.bwarealty.com/') {
+const ListingData = function() {
+  const loc = window.location.href
+  this.getFeed = function() {
+    if (loc === 'http://www.bwarealty.com/') {
       return prod
-    } else if (window.location.href === 'http://staging.bwarealty.com/') {
+    } else if (loc === 'http://staging.bwarealty.com/') {
       return staging
     } else {
       return dev
     }
   }
 
-  // this.data = []
   this.feed = this.getFeed()
   this.url = 'https://spreadsheets.google.com/feeds/list/' + this.feed + '/od6/public/values?alt=json'
- }
+}
 
 // initialize data from Google Sheets JSON feed
 
-ListingData.prototype.setData = function (feedData) {
+ListingData.prototype.setData = function(feedData) {
   // initialize data array
   this.data = []
   // iterate through listing objects in JSON data feed
   feedData.forEach(obj => {
     // create an empty object for each listing
-    let newObj = { }
+    const newObj = {}
     // iterate through properties of google sheet JSON feed
-    for (let prop in obj) {
+    for (const prop in obj) {
       // only save name:value pairs beginning with 'gsx$'
-      if (prop.slice(0,4) === 'gsx$') {
+      if (prop.slice(0, 4) === 'gsx$') {
         // slice off the first 4 chars of the property name
         const newProp = prop.slice(4)
         // and take the value of $t for that property
@@ -44,7 +44,7 @@ ListingData.prototype.setData = function (feedData) {
 
         // convert list(s) into array
         if (newProp === 'images') {
-          let arr = newObj[newProp].split(',')
+          const arr = newObj[newProp].split(',')
           // remove whitespace before or after comma delimiter
           arr.forEach((e, i, a) => {
             a[i] = e.trim()

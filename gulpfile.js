@@ -9,14 +9,14 @@ const gulp = require('gulp')
 
 // gulp utilities
 const concat = require('gulp-concat')
-const gutil = require('gulp-util')
+const util = require('gulp-util')
 const rename = require("gulp-rename")
 const changed = require('gulp-changed')
 
 // gulp compile packages
 const sass = require('gulp-sass')
 const cleanCSS = require('gulp-clean-css')
-const minifyHTML = require('gulp-minify-html');
+const minifyHTML = require('gulp-minify-html')
 const babel = require("gulp-babel")
 const uglify = require('gulp-uglify')
 
@@ -53,13 +53,10 @@ const jsSrc = 'js/**/*.js'
 const jsDest = './dist/js'
 
 const faviconSrc = ['./*.png', './*.ico', './*.svg', './browserconfig.xml', './manifest.json']
-
 const cgiSrc = 'cgi/*.php'
 const cgiDest = distDest + 'cgi/'
-
 const imgSrc = ['img/*.png', 'img/*.jpg', 'img/*.gif']
 const imgDest = distDest + 'img/'
-
 const vendorSrc = 'vendor/**/*'
 const vendorDest = distDest + 'vendor/'
 
@@ -71,6 +68,7 @@ const vendorDest = distDest + 'vendor/'
 gulp.task('default', [
   'minify-html',
   'minify-handlebars',
+  // 'sass',
   'minify-css',
   'minify-js',
   'copy-images',
@@ -81,8 +79,6 @@ gulp.task('default', [
 
 // Run development server task with browserSync locally on port 3000
 gulp.task('serve', ['browserSync', 'default'], function() {
-  gutil.log('Execute: serve')
-
   // run gulp tasks when source files change
   gulp.watch(htmlSrc, ['minify-html'])
   gulp.watch(hbsSrc, ['minify-handlebars'])
@@ -93,16 +89,14 @@ gulp.task('serve', ['browserSync', 'default'], function() {
   gulp.watch(vendorSrc, ['copy-vendor'])
 
   // Reload the browser whenever files change
-  gulp.watch(htmlDest, browserSync.reload);
-  gulp.watch(jsDest, browserSync.reload);
+  gulp.watch(htmlDest, browserSync.reload)
+  gulp.watch(jsDest, browserSync.reload)
   gulp.watch(vendorDest, browserSync.reload)
   gulp.watch(cssDest, browserSync.reload)
-});
+})
 
 // Configure the browserSync task
 gulp.task('browserSync', function() {
-  gutil.log('Execute: browserSync')
-
   browserSync.init({
     server: {
       baseDir: 'dist'
@@ -164,7 +158,8 @@ gulp.task('minify-handlebars', function() {
 gulp.task('minify-js', function() {
   return gulp.src(jsSrc)
     .pipe(babel())
-    .pipe(uglify())
+    .pipe(uglify().on('error', util.log)) // notice the error event here
+    // .pipe(uglify())
     .pipe(rename({
       suffix: '.min'
     }))
@@ -173,7 +168,7 @@ gulp.task('minify-js', function() {
     .pipe(browserSync.reload({
       stream: true
     }))
-});
+})
 
 /*
  *  File Copy Tasks
@@ -182,7 +177,6 @@ gulp.task('minify-js', function() {
 // Copy favicons to dist/
 function copy (src, dest) {
   return gulp.src(src)
-    .pipe(changed(dest))
     .pipe(gulp.dest(dest))
 }
 
@@ -234,7 +228,7 @@ gulp.task('copy-vendor', function() {
 //
 
 gulp.task('push-dev', function () {
-  gutil.log('Execute: push-dev');
+  util.log('Execute: push-dev');
 
   return gulp.src(distSrc)
     .pipe(changed(distSrc))

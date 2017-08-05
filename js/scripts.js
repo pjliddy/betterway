@@ -78,8 +78,8 @@ function getTemplate (path) {
 
 function submitContact (data) {
   return $.ajax({
-    url: "./cgi/submit.php",
-    type: "POST",
+    url: './cgi/submit.php',
+    type: 'POST',
     data: data,
     cache: false
   })
@@ -108,14 +108,14 @@ function showDetails (mls) {
       const content = renderTemplate(template, data)
       showModal(content)
     })
-    .fail((err) => console.log('listing template is not available'))
+    .fail((err) => console.log('listing template is not available', err))
 }
 
 // jQuery Gallery Setup
 
 function setUpGallery() {
   $('#carousel').flexslider({
-    animation: "slide",
+    animation: 'slide',
     controlNav: false,
     animationLoop: false,
     slideshow: false,
@@ -125,11 +125,11 @@ function setUpGallery() {
   })
 
   $('#slider').flexslider({
-    animation: "slide",
+    animation: 'slide',
     controlNav: false,
     animationLoop: false,
     slideshow: false,
-    sync: "#carousel"
+    sync: '#carousel'
   })
 }
 
@@ -143,7 +143,7 @@ function showContactForm () {
       const content = renderTemplate(template)
       showModal(content)
       // auto-format phone number on input
-      $("#phone").mask("(999) 999-9999",{placeholder:" "})
+      $('#phone').mask('(999) 999-9999',{placeholder:' '})
     })
     .fail((err) => console.log('contact template is not available'))
 }
@@ -177,7 +177,7 @@ function handleEvents () {
           scrollTop: ($($anchor.attr('href')).offset().top - 92)
       }, 800, 'easeInOutExpo')
       event.preventDefault()
-  });
+  })
 
   // Highlight the top nav as page scrolls
   $('body').scrollspy({
@@ -197,23 +197,22 @@ function handleEvents () {
     }
   })
 
-  // show listing detail modal when "see more" is clicked
+  // show listing detail modal when 'see more' is clicked
   $('.listings').on('click', '.see-more', (e) => {
     showDetails($(e.target).data('mls'))
   })
 
   // show contact form modal when button is clicked
-  $('.contact-btn').click((e) => {
+  $('.contact-btn').click(() => {
     showContactForm()
   })
 
   // submit contact form
   $('body').on('submit', 'form#contact-form', event => {
-    console.log('submit form')
     event.preventDefault()
-    const name = $("input#firstName").val() + ' ' + $("input#lastName").val()
-    const email = $("input#email").val()
-    const phone = $("input#phone").val()
+    const name = $('input#firstName').val() + ' ' + $('input#lastName').val()
+    const email = $('input#email').val()
+    const phone = $('input#phone').val()
     const data = {
       name: name,
       email: email,
@@ -224,7 +223,7 @@ function handleEvents () {
       .fail(showSubmitError)
 
     // reset form fields
-    $("form#contact-form input").val('')
+    $('form#contact-form input').val('')
   })
 
   // initialize jquery gallery in detail modal
@@ -247,7 +246,7 @@ $(function() {
   handleEvents()
 
   // get data from JSON feed and wait for promise to be returned
-  listingsObj = new ListingData()
+  const listingsObj = new ListingData()
 
   getListingData(listingsObj.url)
     .then((data) => {
