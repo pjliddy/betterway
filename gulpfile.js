@@ -158,8 +158,8 @@ gulp.task('minify-handlebars', function() {
 gulp.task('minify-js', function() {
   return gulp.src(jsSrc)
     .pipe(babel())
-    .pipe(uglify().on('error', util.log)) // notice the error event here
-    // .pipe(uglify())
+    // .pipe(uglify().on('error', util.log)) // notice the error event here
+    .pipe(uglify())
     .pipe(rename({
       suffix: '.min'
     }))

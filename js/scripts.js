@@ -246,7 +246,7 @@ $(function() {
   handleEvents()
 
   // get data from JSON feed and wait for promise to be returned
-  const listingsObj = new ListingData()
+  listingsObj = new ListingData()
 
   getListingData(listingsObj.url)
     .then((data) => {
