@@ -27,7 +27,7 @@ const browserSync = require('browser-sync').create()
 // const sftp = require('gulp-sftp')
 
 // gulp packages for deploying to ftp
-// var gzip = require('gulp-gzip');
+// var gzip = require('gulp-gzip')
 
 /*
  *  Variable Declarations

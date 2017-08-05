@@ -1,6 +1,11 @@
 'use strict'
 
 // initialize global listing data object
+
+const dev = '1oDO9zkpaK1wUSynqYgpQzIs3BJVZN9H19DtwQXBjNfw'
+const staging = '1nz4bJDJdKXyGvMbzfAYol6TpwfsVyoeKWKLFFjYa1Hw'
+const prod = '1oG10rZemC5R6-EcE8bLUofAMoJaqnsS-lgKxGUCuW2c'
+
 let listingsObj = { }
 
 //
@@ -246,7 +251,7 @@ $(function() {
   handleEvents()
 
   // get data from JSON feed and wait for promise to be returned
-  listingsObj = new ListingData()
+  listingsObj = new ListingData(prod, dev, staging)
 
   getListingData(listingsObj.url)
     .then((data) => {

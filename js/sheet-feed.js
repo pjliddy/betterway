@@ -1,14 +1,8 @@
 'use strict'
 
-// window.location.href
-
-const dev = '1oDO9zkpaK1wUSynqYgpQzIs3BJVZN9H19DtwQXBjNfw'
-const staging = '1nz4bJDJdKXyGvMbzfAYol6TpwfsVyoeKWKLFFjYa1Hw'
-const prod = '1oG10rZemC5R6-EcE8bLUofAMoJaqnsS-lgKxGUCuW2c'
-
 // global listing data object constructor
 
-const ListingData = function() {
+const ListingData = function(prod, dev, staging) {
   const loc = window.location.href
   this.getFeed = function() {
     if (loc === 'http://www.bwarealty.com/') {
