@@ -253,7 +253,7 @@ function deploy (server) {
 
 
 // Push 'dist/' to dev server
-gulp.task('deploy-dev', ['default', 'git-dist'], function () {
+gulp.task('deploy-dev', ['git-dist'], function () {
   // git subtree push --prefix dist dev master
   // return deploy('dev')
   return gulp.src('dist')
