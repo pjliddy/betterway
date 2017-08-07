@@ -23,6 +23,10 @@ const uglify = require('gulp-uglify')
 // gulp server packages
 const browserSync = require('browser-sync').create()
 
+// gulp git packages
+var git = require('gulp-git')
+var subtree = require('gulp-subtree')
+
 // gulp file transfer packages
 // const sftp = require('gulp-sftp')
 
@@ -221,6 +225,48 @@ gulp.task('copy-vendor', function() {
     .pipe(gulp.dest('vendor/font-awesome'))
 
   return copy(vendorSrc, vendorDest)
+})
+
+/*
+ *  Git Deploy Scripts
+ */
+
+// Add dist files to remote repo on server
+gulp.task('git-dist', function(){
+  return gulp.src('dist/')
+    .pipe(git.add({args: '-f'}))
+    // commit files
+    .pipe(git.commit(undefined, {
+      args: '-m "commit build"',
+      disableMessageRequirement: true
+    }))
+})
+
+function deploy (server) {
+  return gulp.src('dist')
+    .pipe(subtree({
+      remote: server,
+      branch: 'master',
+      message: 'Deploy to ' + server
+    }))
+}
+
+
+// Push 'dist/' to dev server
+gulp.task('deploy-dev', ['default', 'git-dist'], function () {
+  // git subtree push --prefix dist dev master
+  // return deploy('dev')
+  return gulp.src('dist')
+    .pipe(subtree({
+      remote: 'dev',
+      branch: 'master',
+      message: 'Deploy to dev'
+    }))
+})
+
+// Push 'dist/' to staging server
+gulp.task('deploy-staging', ['default', 'git-dist'], function () {
+  return deploy('staging')
 })
 
 //
