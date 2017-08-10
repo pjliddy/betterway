@@ -248,17 +248,20 @@ gulp.task('git-dist', function() {
 
 // Push 'dist/' to dev server
 gulp.task('deploy-dev', ['git-dist'], shell.task([
-  'git subtree push --prefix dist dev master'
+  'git push dev `git subtree split --prefix dist master`:master --force'
+  // 'git subtree push --prefix dist dev master'
 ]))
 
 // Push 'dist/' to staging server
 gulp.task('deploy-staging', ['git-dist'], shell.task([
-  'git subtree push --prefix dist staging master'
+  'git push staging `git subtree split --prefix dist master`:master --force'
+  // 'git subtree push --prefix dist staging master'
 ]))
 
 // Push 'dist/' to production server
 gulp.task('deploy-prod', ['git-dist'], shell.task([
-  'git subtree push --prefix dist prod master'
+  'git push prod `git subtree split --prefix dist master`:master --force'
+  // 'git subtree push --prefix dist prod master'
 ]))
 
 
