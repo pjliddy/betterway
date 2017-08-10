@@ -24,8 +24,9 @@ const uglify = require('gulp-uglify')
 const browserSync = require('browser-sync').create()
 
 // gulp git packages
-var git = require('gulp-git')
-var subtree = require('gulp-subtree')
+const git = require('gulp-git')
+const subtree = require('gulp-subtree')
+const shell = require('gulp-shell');
 
 // gulp file transfer packages
 // const sftp = require('gulp-sftp')
@@ -115,10 +116,10 @@ gulp.task('browserSync', function() {
 // Compile SCSS files from to css/
 gulp.task('sass', function() {
   return gulp.src(sassSrc)
-  .pipe(sass())
-  .pipe(concat(sassOutput))
-  // .pipe(changed(sassDest))
-  .pipe(gulp.dest(sassDest))
+    .pipe(sass())
+    .pipe(concat(sassOutput))
+    // .pipe(changed(sassDest))
+    .pipe(gulp.dest(sassDest))
 })
 
 // Minify compiled CSS to dist/
@@ -138,9 +139,12 @@ gulp.task('minify-css', ['sass'], function() {
 })
 
 // use minifyHTML to minify html and handlebars files
-function minifyHtmlFiles (src, dest) {
+function minifyHtmlFiles(src, dest) {
   return gulp.src(src)
-    .pipe(minifyHTML({ conditionals: true, spare:true}))
+    .pipe(minifyHTML({
+      conditionals: true,
+      spare: true
+    }))
     // .pipe(changed(dest))
     .pipe(gulp.dest(dest))
     .pipe(browserSync.reload({
@@ -179,7 +183,7 @@ gulp.task('minify-js', function() {
  */
 
 // Copy favicons to dist/
-function copy (src, dest) {
+function copy(src, dest) {
   return gulp.src(src)
     .pipe(gulp.dest(dest))
 }
@@ -190,12 +194,12 @@ gulp.task('copy-favicons', function() {
 
 // Copy cgi contents to dist/
 gulp.task('copy-cgi', function() {
-  return copy(cgiSrc,cgiDest)
+  return copy(cgiSrc, cgiDest)
 })
 
 // Copy images to dist/
 gulp.task('copy-images', function() {
-  return copy(imgSrc,imgDest)
+  return copy(imgSrc, imgDest)
 })
 
 // Deploy vendor directory to dist/
@@ -232,9 +236,11 @@ gulp.task('copy-vendor', function() {
  */
 
 // Add dist files to remote repo on server
-gulp.task('git-dist', function(){
+gulp.task('git-dist', function() {
   return gulp.src('dist/')
-    .pipe(git.add({args: '-f'}))
+    .pipe(git.add({
+      args: '-f'
+    }))
     // commit files
     .pipe(git.commit(undefined, {
       args: '-m "commit build"',
@@ -242,30 +248,22 @@ gulp.task('git-dist', function(){
     }))
 })
 
-function deploy (server) {
-  return gulp.src('dist')
-    .pipe(subtree({
-      remote: server,
-      branch: 'master',
-      message: 'Deploy to ' + server
-    }))
-}
+// function deploy(server) {
+//   return gulp.src('dist')
+//     .pipe(subtree({
+//       remote: server,
+//       branch: 'master',
+//       message: 'Deploy to ' + server
+//     }))
+// }
 
 
-// Push 'dist/' to dev server
-gulp.task('deploy-dev', ['git-dist'], function () {
-  // git subtree push --prefix dist dev master
-  // return deploy('dev')
-  return gulp.src('dist')
-    .pipe(subtree({
-      remote: 'dev',
-      branch: 'master',
-      message: 'Deploy to dev'
-    }))
-})
+gulp.task('deploy-dev', ['git-dist'], shell.task([
+  'git subtree push --prefix dist dev master'
+]))
 
 // Push 'dist/' to staging server
-gulp.task('deploy-staging', ['default', 'git-dist'], function () {
+gulp.task('deploy-staging', ['default', 'git-dist'], function() {
   return deploy('staging')
 })
 
@@ -273,7 +271,7 @@ gulp.task('deploy-staging', ['default', 'git-dist'], function () {
 // NOT REFACTORED YET
 //
 
-gulp.task('push-dev', function () {
+gulp.task('push-dev', function() {
   util.log('Execute: push-dev');
 
   return gulp.src(distSrc)
