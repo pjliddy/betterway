@@ -25,8 +25,8 @@ const browserSync = require('browser-sync').create()
 
 // gulp git packages
 const git = require('gulp-git')
-const subtree = require('gulp-subtree')
 const shell = require('gulp-shell');
+// const subtree = require('gulp-subtree')
 
 // gulp file transfer packages
 // const sftp = require('gulp-sftp')
@@ -166,7 +166,7 @@ gulp.task('minify-handlebars', function() {
 gulp.task('minify-js', function() {
   return gulp.src(jsSrc)
     .pipe(babel())
-    // .pipe(uglify().on('error', util.log)) // notice the error event here
+    // .pipe(uglify().on('error', util.log))
     .pipe(uglify())
     .pipe(rename({
       suffix: '.min'
@@ -210,11 +210,9 @@ gulp.task('deploy-vendor', function() {
 // Copy vendor libraries from /node_modules into /vendor
 gulp.task('copy-vendor', function() {
   gulp.src(['node_modules/bootstrap/dist/**/*', '!**/npm.js', '!**/bootstrap-theme.*', '!**/*.map'])
-    // .pipe(changed('vendor/bootstrap'))
     .pipe(gulp.dest('vendor/bootstrap'))
 
   gulp.src(['node_modules/jquery/dist/jquery.js', 'node_modules/jquery/dist/jquery.min.js'])
-    // .pipe(changed('vendor/jquery'))
     .pipe(gulp.dest('vendor/jquery'))
 
   gulp.src([
@@ -225,7 +223,6 @@ gulp.task('copy-vendor', function() {
       '!node_modules/font-awesome/*.md',
       '!node_modules/font-awesome/*.json'
     ])
-    // .pipe(changed('vendor/font-awesome'))
     .pipe(gulp.dest('vendor/font-awesome'))
 
   return copy(vendorSrc, vendorDest)
@@ -238,50 +235,44 @@ gulp.task('copy-vendor', function() {
 // Add dist files to remote repo on server
 gulp.task('git-dist', function() {
   return gulp.src('dist/')
+    // add dist/ directory to commit
     .pipe(git.add({
       args: '-f'
     }))
-    // commit files
+    // commit files for subtree
     .pipe(git.commit(undefined, {
       args: '-m "commit build"',
       disableMessageRequirement: true
     }))
 })
 
-// function deploy(server) {
-//   return gulp.src('dist')
-//     .pipe(subtree({
-//       remote: server,
-//       branch: 'master',
-//       message: 'Deploy to ' + server
-//     }))
-// }
-
-
+// Push 'dist/' to dev server
 gulp.task('deploy-dev', ['git-dist'], shell.task([
   'git subtree push --prefix dist dev master'
 ]))
 
 // Push 'dist/' to staging server
-gulp.task('deploy-staging', ['default', 'git-dist'], function() {
-  return deploy('staging')
-})
+gulp.task('deploy-staging', ['git-dist'], shell.task([
+  'git subtree push --prefix dist staging master'
+]))
 
+// Push 'dist/' to production server
+gulp.task('deploy-prod', ['git-dist'], shell.task([
+  'git subtree push --prefix dist prod master'
+]))
+
+
+// gulp.task('push-dev', function() {
+//   util.log('Execute: push-dev');
 //
-// NOT REFACTORED YET
-//
-
-gulp.task('push-dev', function() {
-  util.log('Execute: push-dev');
-
-  return gulp.src(distSrc)
-    .pipe(changed(distSrc))
-    // .pipe(gulp.dest(dist))
-    .pipe(sftp({
-      auth: 'privateKeyEncrypted',
-      host: 'bwarealty.com',
-      remotePath: '/home/bwarealty/dev/',
-      key: '~/.ssh/bwa_id_rsa',
-      authFile: '.ftppass'
-    }))
-})
+//   return gulp.src(distSrc)
+//     .pipe(changed(distSrc))
+//     // .pipe(gulp.dest(dist))
+//     .pipe(sftp({
+//       auth: 'privateKeyEncrypted',
+//       host: 'bwarealty.com',
+//       remotePath: '/home/bwarealty/dev/',
+//       key: '~/.ssh/bwa_id_rsa',
+//       authFile: '.ftppass'
+//     }))
+// })
