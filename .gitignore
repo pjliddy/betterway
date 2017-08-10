@@ -2,4 +2,3 @@ dist/
 dev/
 node_modules/
 .ftppass
-.babelrc

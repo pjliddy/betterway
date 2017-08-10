@@ -6,7 +6,7 @@ const dev = '1oDO9zkpaK1wUSynqYgpQzIs3BJVZN9H19DtwQXBjNfw'
 const staging = '1nz4bJDJdKXyGvMbzfAYol6TpwfsVyoeKWKLFFjYa1Hw'
 const prod = '1oG10rZemC5R6-EcE8bLUofAMoJaqnsS-lgKxGUCuW2c'
 
-let listingsObj = { }
+let listingsObj = {}
 
 //
 // Template Rendering Functions
@@ -16,7 +16,7 @@ let listingsObj = { }
 
 function renderTemplate(source, data) {
   const template  = Handlebars.compile(source)
-  const content = template({data})
+  const content = template({data:data})
   return content
 }
 
@@ -24,7 +24,7 @@ function renderTemplate(source, data) {
 
 function replaceTemplate(target, source, data) {
   const template  = Handlebars.compile(source)
-  const content = template({data})
+  const content = template({data:data})
   $(target).html(content)
 }
 
@@ -32,7 +32,7 @@ function replaceTemplate(target, source, data) {
 
 function appendTemplate(target, source, data) {
   const template  = Handlebars.compile(source)
-  const content = template({data})
+  const content = template({data:data})
   $(target).append(content)
 }
 
@@ -96,8 +96,8 @@ function submitContact (data) {
 
 // get data from listingData array from mls number
 
-function getDetailData (mls) {
-  for (let i = 0; i < listingsObj.data.length; i++) {
+const getDetailData = function (mls) {
+  for (i = 0; i < listingsObj.data.length; i++) {
     if (listingsObj.data[i].mls == mls) {
       return listingsObj.data[i]
     }
