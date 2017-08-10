@@ -96,8 +96,8 @@ function submitContact (data) {
 
 // get data from listingData array from mls number
 
-const getDetailData = function (mls) {
-  for (i = 0; i < listingsObj.data.length; i++) {
+function getDetailData (mls) {
+  for (let i = 0; i < listingsObj.data.length; i++) {
     if (listingsObj.data[i].mls == mls) {
       return listingsObj.data[i]
     }
