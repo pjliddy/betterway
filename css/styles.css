@@ -6784,5 +6784,7 @@ section {
   .detail-modal .detail-group .detail-label {
     font-weight: 500; }
 
-.flexslider {
-  margin-bottom: 0; }
+.galleria {
+  background: #fff;
+  height: 400px;
+  max-width: 100%; }
