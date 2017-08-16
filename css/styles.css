@@ -6785,6 +6785,6 @@ section {
     font-weight: 500; }
 
 .galleria {
-  background: #fff;
-  height: 400px;
-  max-width: 100%; }
+  background-color: #fff;
+  height: 700px;
+  width: 100%; }

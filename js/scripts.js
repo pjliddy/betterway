@@ -119,68 +119,13 @@ function showDetails (mls) {
 // jQuery Gallery Setup
 
 function setUpGallery() {
-  Galleria.loadTheme('https://cdnjs.cloudflare.com/ajax/libs/galleria/1.5.7/themes/classic/galleria.classic.min.js');
-
-  Galleria.run('.galleria');
-
-  // $('#imageGallery').lightSlider({
-  //       gallery:true,
-  //       item:1,
-  //       loop:true,
-  //       thumbItem:9,
-  //       slideMargin:0,
-  //       enableDrag: false,
-  //       currentPagerPosition:'left',
-  //       onSliderLoad: function(el) {
-  //           el.lightGallery({
-  //               selector: '#imageGallery .lslide'
-  //           });
-  //       }
-  //   });
-
-  // $("#lightSlider").lightSlider({
-  //   autoWidth:true,
-  //   item:4,
-  //   loop:true,
-  //   slideMove:2,
-  //   easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
-  //   speed:600,
-    // responsive : [
-    //     {
-    //         breakpoint:800,
-    //         settings: {
-    //             item:3,
-    //             slideMove:1,
-    //             slideMargin:6,
-    //           }
-    //     },
-    //     {
-    //         breakpoint:480,
-    //         settings: {
-    //             item:2,
-    //             slideMove:1
-    //           }
-    //     }
-    // ]
-    // });
-
-  // $('#carousel').flexslider({
-  //   animation: 'slide',
-  //   controlNav: false,
-  //   animationLoop: false,
-  //   slideshow: false,
-  //   itemWidth: 210,
-  //   itemMargin: 5,
-  //   asNavFor: '#slider'
-  // })
-
-  // $('#slider').flexslider({
-  //   animation: 'slide',
-  //   controlNav: false,
-  //   animationLoop: false,
-  //   slideshow: false,
-  //   sync: '#carousel'
-  // })
+  // Galleria.loadTheme('https://cdnjs.cloudflare.com/ajax/libs/galleria/1.5.7/themes/classic/galleria.classic.min.js');
+  Galleria.loadTheme('vendor/galleria/classic/galleria.classic.js')
+  Galleria.configure({
+    idleMode:false,
+    showImagenav: true
+  })
+  Galleria.run('.galleria')
 }
 
 //
@@ -277,7 +222,7 @@ function handleEvents () {
   })
 
   // initialize jquery gallery in detail modal
-  $('body').on('shown.bs.modal', '#detail-modal', () => {
+  $('body').on('show.bs.modal', '#detail-modal', () => {
     setUpGallery()
   })
 
