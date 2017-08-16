@@ -6786,5 +6786,17 @@ section {
 
 .galleria {
   background-color: #fff;
-  height: 700px;
+  height: 320px;
   width: 100%; }
+
+@media (min-width: 640px) {
+  .galleria {
+    height: 480px; } }
+
+@media (min-width: 768px) {
+  .galleria {
+    height: 400px; } }
+
+@media (min-width: 992px) {
+  .galleria {
+    height: 600px; } }
