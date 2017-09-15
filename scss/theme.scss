@@ -198,7 +198,7 @@ h6,
   text-shadow: $text-shadow-sm;
 
   h1 {
-    color: $theme-highlight;
+    color: $blue-dark;
     font-weight: 500;
     letter-spacing: 1px;
     margin-bottom: .5em;
@@ -221,14 +221,14 @@ h6,
   }
 
   .phone-number {
-    color: $theme-highlight;
+    color: $blue-dark;
     font-size: 2.25em;
     font-weight: 700;
     letter-spacing: 1.5px;
   }
 
   a[href^="tel"] {
-    color: $theme-highlight;
+    color: $blue-dark;
     text-decoration: none;
   }
 
