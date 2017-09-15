@@ -6775,6 +6775,28 @@ section {
   .detail-modal .detail-group .detail-label {
     font-weight: 500; }
 
+.contact {
+  margin-bottom: 45px; }
+  .contact .intro {
+    text-align: center; }
+  .contact .contact-detail {
+    text-align: center; }
+    .contact .contact-detail i {
+      color: #51657b;
+      display: block;
+      margin-top: 30px; }
+    .contact .contact-detail .contact-label {
+      margin: 10px 0 0; }
+    .contact .contact-detail .contact-info {
+      font-weight: 500;
+      margin-top: 0; }
+
+footer {
+  background: #51657b;
+  color: #fff; }
+  footer .container {
+    padding: 20px 15px 15px; }
+
 .galleria {
   background-color: #fff;
   height: 320px;

@@ -643,10 +643,45 @@ section {
 
 }
 
-// flexslider slide show styles
-// .flexslider {
-//   margin-bottom: 0;
-// }
+// contact us section styles
+
+.contact {
+  margin-bottom: 45px;
+
+  .intro {
+    text-align: center;
+  }
+  .contact-detail {
+    text-align: center;
+
+    i {
+      color: $brand-primary;
+      display: block;
+      margin-top: 30px;
+    }
+
+    .contact-label {
+      margin: 10px 0 0;
+    }
+
+    .contact-info {
+      font-weight: 500;
+      margin-top: 0;
+    }
+  }
+}
+
+
+// footer
+
+footer {
+  background: $brand-primary;
+  color: $white;
+
+  .container {
+    padding: 20px 15px 15px;
+  }
+}
 
 // galeria pblugin for image gallery
 .galleria {
