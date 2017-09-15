@@ -150,7 +150,7 @@ h6,
         color: $white;
         // margin-left: .5em;
         margin: .5em 0;
-        padding: .5em .75em;
+        padding: .5em .5em;
       }
 
       & > .active > a,
@@ -167,21 +167,10 @@ h6,
   .navbar-custom {
     // padding: 14px 8px 0;
 
-    .navbar-brand {
-      // .logo-type {
-      //   display: inline-block;
-      //   vertical-align: middle;
-      // }
-      //
-      // .logo-primary {
-      //   display: inline;
-      //   font-size: 1em;
-      // }
-      //
-      // .logo-secondary {
-      //   display: inline;
-      //   font-size: 1em;
-      // }
+    .navbar-nav {
+      & > li > a {
+        padding: .5em .75em;
+      }
     }
   }
 }
