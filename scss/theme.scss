@@ -57,7 +57,7 @@ h2,
 
 h3,
 .h3 {
-  color: $gray;
+  color: $gray-darker;
   font-weight: 400;
   text-align: center;
 }
@@ -190,7 +190,7 @@ h6,
   background-position: center center;
   background-repeat: no-repeat;
   // background-color: $theme-primary;
-  color: $white;
+  color: $gray-lighter;
   font-weight: 400;
   height: calc(100vh - $navbar-height);
   margin-top: $navbar-height;
@@ -198,14 +198,14 @@ h6,
   text-shadow: $text-shadow-sm;
 
   h1 {
-    color: $blue-dark;
+    color: $white;
     font-weight: 500;
     letter-spacing: 1px;
     margin-bottom: .5em;
   }
 
   h2 {
-    color: $white;
+    color: $gray-lighter;
     font-size: 1.375em;
     font-weight: 400;
     letter-spacing: .75px;
@@ -221,14 +221,14 @@ h6,
   }
 
   .phone-number {
-    color: $blue-dark;
+    color: $white;
     font-size: 2.25em;
     font-weight: 700;
     letter-spacing: 1.5px;
   }
 
   a[href^="tel"] {
-    color: $blue-dark;
+    color: $white;
     text-decoration: none;
   }
 
