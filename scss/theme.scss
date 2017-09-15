@@ -3,31 +3,31 @@
 //
 
 .brand-bg {
-  background-color: $brand-primary;
+  background-color: $blue-medium;
 }
 
 .brand-border {
-  border-color: $brand-primary;
+  border-color: $blue-medium;
 }
 
 .brand-color {
-  color: $brand-primary;
+  color: $blue-medium;
 }
 
 .highlight-bg {
-  background-color: $theme-highlight;
+  background-color: $blue-light;
 }
 
 .highlight-border {
-  border-color: $theme-highlight;
+  border-color: $blue-light;
 }
 
 .highlight-color {
-  color: $theme-highlight;
+  color: $blue-light;
 }
 
 .btn-theme {
-  @include button-variant($brand-primary, $theme-highlight, $theme-highlight);
+  @include button-variant($brand-primary, $white, $brand-primary);
   border: 0;
 }
 
@@ -44,13 +44,13 @@ body {
 
 h1,
 .h1 {
-  color: $gray-darker;
+  color: $blue-dark;
   font-weight: 700;
 }
 
 h2,
 .h2 {
-  color: $gray-darker;
+  color: $blue-dark;
   font-size: 3em;
   font-weight: 500;
 }
@@ -82,38 +82,19 @@ h6,
   font-size: $navbar-font-size;
   font-weight: $font-weight-base;
   margin: 0;
+  padding: 0 10px;
 
   .navbar-brand {
     color: $white;
     display: inline-block;
-    // font-family: 'Petit Formal Script', cursive;
     font-family: $font-family-serif;
     font-weight: 400;
     height: 100%;
 
     img {
       display: inline;
-      height: 1.75em;
-      margin-right: .25em;
       vertical-align: middle;
     }
-
-    .logo-type {
-      display: inline-block;
-      font-size: 1em;
-      line-height: .925;
-      vertical-align: middle;
-    }
-
-    // .logo-primary {
-    //   // display: inline-block;
-    //   font-size: 1em;
-    // }
-    //
-    // .logo-secondary {
-    //   // display: inline-block;
-    //   font-size: .625em;
-    // }
   }
 
   .navbar-toggle,
@@ -122,6 +103,8 @@ h6,
     border: 0;
     color: $white;
     font-weight: $font-weight-base;
+    margin: 14px 0;
+    // vertical-align: middle;
 
     &:hover,
     &:active,
@@ -152,6 +135,10 @@ h6,
 
 @media(min-width:768px) {
   .navbar-custom {
+    .navbar-right {
+      margin: 6px 0;
+    }
+
     .navbar-nav {
       & > li > a {
         color: $white;
@@ -175,20 +162,20 @@ h6,
     // padding: 14px 8px 0;
 
     .navbar-brand {
-      .logo-type {
-        display: inline-block;
-        vertical-align: middle;
-      }
-
-      .logo-primary {
-        display: inline;
-        font-size: 1em;
-      }
-
-      .logo-secondary {
-        display: inline;
-        font-size: 1em;
-      }
+      // .logo-type {
+      //   display: inline-block;
+      //   vertical-align: middle;
+      // }
+      //
+      // .logo-primary {
+      //   display: inline;
+      //   font-size: 1em;
+      // }
+      //
+      // .logo-secondary {
+      //   display: inline;
+      //   font-size: 1em;
+      // }
     }
   }
 }
@@ -370,7 +357,7 @@ section {
   margin-top: 1.25em;
 
   h2 {
-    color: $brand-primary;
+    color: $blue-dark;
     // margin: 1em 0 1em;
     text-align: center;
   }
@@ -394,6 +381,14 @@ section {
 
       .fa-stack {
         margin: 0 auto;
+      }
+
+      .fa-circle {
+        color: $blue-medium;
+      }
+
+      .fa-stack-1x {
+        color: $white;
       }
     }
     .service-copy {
@@ -532,12 +527,13 @@ section {
   }
 
   .status-sold {
-    background: $theme-highlight;
+    background: $brand-primary;
     border-radius: 4px;
-    color: $brand-primary;
+    color: $white;
     display: inline-block;
-    font-weight: 400;
-    padding: 1px 6px;
+    font-size: 14px;
+    font-weight: 300;
+    padding: 3px 6px;
   }
 
   button {

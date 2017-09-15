@@ -263,19 +263,3 @@ gulp.task('deploy-prod', ['git-dist'], shell.task([
   'git push prod `git subtree split --prefix dist master`:master --force'
   // 'git subtree push --prefix dist prod master'
 ]))
-
-
-// gulp.task('push-dev', function() {
-//   util.log('Execute: push-dev');
-//
-//   return gulp.src(distSrc)
-//     .pipe(changed(distSrc))
-//     // .pipe(gulp.dest(dist))
-//     .pipe(sftp({
-//       auth: 'privateKeyEncrypted',
-//       host: 'bwarealty.com',
-//       remotePath: '/home/bwarealty/dev/',
-//       key: '~/.ssh/bwa_id_rsa',
-//       authFile: '.ftppass'
-//     }))
-// })
