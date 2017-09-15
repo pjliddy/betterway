@@ -31,6 +31,12 @@
   border: 0;
 }
 
+.btn-highlight {
+  @include button-variant($blue-medium, $white, $blue-dark);
+  // border-width: 2px;
+  border: 0;
+}
+
 //
 //  Global Styles
 //
@@ -354,20 +360,45 @@ form {
 //
 
 section {
-  margin-top: 1.25em;
+  // margin-top: 1.25em;
+  padding-bottom: 4em;
 
   h2 {
     color: $blue-dark;
-    // margin: 1em 0 1em;
+    margin-top: 1em;
     text-align: center;
+  }
+
+  .large {
+    font-size: 18px;
+    line-height: 1.8;
+  }
+}
+
+@media(min-width:640px) {
+  section {
+    .large {
+      font-size: 21px;
+      // line-height: 2;
+    }
+
   }
 }
 
 //
-//  Services Styles
+//  What We Offer Styles
 //
 
-.service {
+.offer {
+
+}
+
+//
+//  Difference Styles
+//
+
+.difference {
+  background: $gray-lighter;
   margin-top: 30px;
 
   .service-item {
@@ -423,6 +454,14 @@ section {
       text-align: center;
     }
   }
+}
+
+//
+//  Buyers Styles
+//
+
+.buyers {
+  background: $gray-lighter;
 }
 
 //
@@ -646,7 +685,8 @@ section {
 // contact us section styles
 
 .contact {
-  margin-bottom: 45px;
+  // margin-bottom: 45px;
+  background: $gray-lighter;
 
   .intro {
     text-align: center;
