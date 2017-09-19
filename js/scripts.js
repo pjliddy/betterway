@@ -132,7 +132,10 @@ function setUpGallery() {
 //  Contact Form Modal Functions
 //
 
-function showContactForm () {
+function showContactForm (event) {
+  event.preventDefault()
+  debugger;
+
   getTemplate('js/templates/modal-contact.hbs')
     .then((template) => {
       const content = renderTemplate(template)
@@ -198,9 +201,15 @@ function handleEvents () {
   })
 
   // show contact form modal when button is clicked
-  $('.contact-btn').click(() => {
-    showContactForm()
+  $('.contact-btn').click((event) => {
+    showContactForm(event)
   })
+
+  $('.how-it-works').on('click', '.contact-link', (e) => {
+    debugger;
+    showContactForm(e)
+  })
+
 
   // submit contact form
   $('body').on('submit', 'form#contact-form', event => {
