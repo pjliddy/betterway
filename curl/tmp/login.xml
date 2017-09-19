@@ -1,0 +1,17 @@
+<RETS ReplyCode="0" ReplyText="Operation Success.">
+<RETS-RESPONSE>
+MemberName=
+User=RTESTB,NULL,NULL,RTESTB
+Broker=
+MetadataVersion=1.00.04816
+MetadataTimestamp=2017-09-07T14:10:48Z
+MinMetadataTimestamp=2017-09-07T14:10:48Z
+Login=http://fmlsrets.mlsmatrix.com/Rets/Login.ashx
+Logout=http://fmlsrets.mlsmatrix.com/Rets/Logout.ashx
+Search=http://fmlsrets.mlsmatrix.com/Rets/Search.ashx
+GetMetadata=http://fmlsrets.mlsmatrix.com/Rets/GetMetadata.ashx
+GetObject=http://fmlsrets.mlsmatrix.com/Rets/GetObject.ashx
+Update=http://fmlsrets.mlsmatrix.com/Rets/Update.ashx
+PostObject=http://fmlsrets.mlsmatrix.com/Rets/PostObject.ashx
+</RETS-RESPONSE>
+</RETS>
